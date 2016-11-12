@@ -25,6 +25,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ReserveSport", "ReserveSpor
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationServices", "ReservationServices\ReservationServices.csproj", "{34F6EC8C-B0AD-4A05-BE70-16C2AB3679F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{6EBDE0EB-D9AB-4959-B4CE-0E8964C9A4E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EBDE0EB-D9AB-4959-B4CE-0E8964C9A4E8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EBDE0EB-D9AB-4959-B4CE-0E8964C9A4E8}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{34F6EC8C-B0AD-4A05-BE70-16C2AB3679F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F6EC8C-B0AD-4A05-BE70-16C2AB3679F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F6EC8C-B0AD-4A05-BE70-16C2AB3679F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F6EC8C-B0AD-4A05-BE70-16C2AB3679F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
