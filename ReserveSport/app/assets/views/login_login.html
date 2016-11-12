@@ -1,0 +1,48 @@
+<!-- start: LOGIN -->
+<div ng-controller="LoginCtrl">
+    <div class="row">
+        <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+            <!-- start: LOGIN BOX -->
+            <div class="box-login">
+                <form class="form-login" action="index.html">
+                    <fieldset>
+                        <legend>
+                            Iniciar sesi&oacute;n en su cuenta
+                        </legend>
+                        <p>
+                            Por favor, introduzca su usuario y password para acceder.
+                        </p>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+                            <div id="dtbUserName" aria-describedby="basic-addon1" class="form-control"
+                                 dx-text-box="{ value: '', placeholder: 'USUARIO' }"
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValGroup'  }">
+                            </div>
+                        </div>
+                        <div class="input-group" style="padding-top:3px">
+                            <span class="input-group-addon" id="basic-addon2" style="width:38px"><i class="fa fa-lock"></i></span>
+                            <div id="txtPassword" aria-describedby="basic-addon2"
+                                 dx-text-box="{ value: '', placeholder: 'PASSWORD', mode: 'password', width: 317 }"
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValGroup'  }">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div id="loadContainer" dx-load-panel="{ message: 'Iniciando Sesi&oacute;n...' }"></div>
+                            <div>
+                                <div dx-button="{ type: 'default', text: 'Login', icon: 'fa fa-arrow-circle-right', width: 80, onClick: Login }">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <!-- start: COPYRIGHT -->
+                <div class="copyright">
+                    {{app.year}} &copy; {{ app.name }} by {{ app.author }}.
+                </div>
+                <!-- end: COPYRIGHT -->
+            </div>
+            <!-- end: LOGIN BOX -->
+        </div>
+    </div>
+</div>
+<!-- end: LOGIN -->

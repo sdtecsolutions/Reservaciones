@@ -1,0 +1,102 @@
+﻿<!-- start: RESERVATION TITLE -->
+<div ng-controller="ReservationCtrl">
+    <section id="page-title" class="padding-top-5 padding-bottom-5">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1 class="mainTitle" translate="dashboard.RESERVATION">Reservation</h1>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="over-title margin-bottom-15"><span class="text-bold">Lista de Reservaciones Pendientes</span></h5>
+                <div id="dlpcustomLoad" dx-load-panel="{ message: 'Cargando...', showIndicator: true }"></div>
+                <div id="gdvReservation"
+                     ng-init="list_Reservation()"
+                     dx-data-grid="{
+                                    columns:[
+                                                {
+                                                    alignment: 'center',
+                                                    allowEditing: false,
+                                                    allowSorting: false,
+                                                    cellTemplate: gdvReservation_cellTemplate,
+                                                    headerCellTemplate: gdvReservation_headerCellTemplate,
+                                                    width: 80,
+                                                    fixed: true,
+                                                    fixedPosition: 'left'
+                                                }, {
+                                                    caption: 'Solicitud',
+                                                    dataField: 'ALF_NUME_PEDI'
+                                                }, {
+                                                    caption: 'Cliente',
+                                                    dataField: 'ALF_NOMB'
+                                                }, {
+                                                    caption: 'Teléfono',
+                                                    dataField: 'ALF_NUME_TELE'
+                                                }, {
+                                                    caption: 'Fecha',
+                                                    dataField: 'FEC_RESE'
+                                                }, {
+                                                    caption: 'Horario',
+                                                    dataField: 'ALF_HORA'
+                                                }, {
+                                                    caption: 'Deporte',
+                                                    dataField: 'ALF_TIPO_DEPO'
+                                                }, {
+                                                    caption: 'Cancha',
+                                                    dataField: 'ALF_TIPO_CANC'
+                                                }, {
+                                                    caption: 'Deuda',
+                                                    dataField: 'MON_DEUD'
+                                                }, {
+                                                    caption: 'Estado',
+                                                    dataField: 'IND_ESTA'
+                                                }
+                                            ],
+                                    filterRow: {
+                                                    visible: true
+                                    },
+                                    sorting: {
+                                                mode: 'multiple'
+                                    },
+                                    paging: {
+                                                pageSize: 10
+                                    },
+                                    pager: {
+                                                showPageSizeSelector: true,
+                                                allowedPageSizes: [10, 20, 50, 100]
+                                    },
+                                    summary: {
+                                                totalItems:[
+                                                                {
+                                                                    column: 'ALF_NUME_PEDI',
+                                                                    summaryType: 'count',
+                                                                    displayFormat: 'Total: {0}'
+                                                                }, {
+                                                                    column: 'MON_DEUD',
+                                                                    summaryType: 'sum',
+                                                                    displayFormat: 'Total: {0}'
+                                                                }
+                                                            ]
+                                    },
+                                    loadPanel: {
+                                                    enabled: false
+                                    },
+                                    selection: {
+                                                    mode: 'single'
+                                    },
+                                    height: 420,
+                                    noDataText: '',
+                                    showBorders: true,
+                                    showRowLines: true,
+                                    hoverStateEnabled: true,
+                                    twoWayBindingEnabled: false,
+                                    columnAutoWidth: true
+                                }">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: RESERVATION TITLE -->

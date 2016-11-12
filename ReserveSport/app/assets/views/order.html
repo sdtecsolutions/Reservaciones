@@ -1,0 +1,139 @@
+﻿<div ng-controller="OrderCtrl" class="centerorder">
+    <section id="page-title" class="padding-top-5 padding-bottom-5">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1 class="mainTitle" style="font-size:18px">Solicitud de Reserva</h1>
+            </div>
+        </div>
+    </section>
+
+    <div id="ordrContent" class="CenterContent">
+        <div id="dlpProcess" dx-load-panel="{ message: 'Enviando solicitud...', showIndicator: true }"></div>
+        <div class="row">
+            <div>
+                <div class="ContentLabel140">Tipo documento:</div>
+                <div class="ContentInput">
+                    <div id="dsbALF_TIPO_DOCU"
+                         dx-select-box="{
+                                            dataSource: tiposdocumentos,
+                                            displayExpr: 'ALF_TIPO_DOCU',
+                                            valueExpr: 'COD_TIPO_DOCU',
+                                            width: 200,
+                                            searchEnabled: true,
+                                            searchMode: 'contains',
+                                            showClearButton: true
+                                        }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Número documento:</div>
+                <div class="ContentInput">
+                    <div id="dtbALF_NUME_DOCU"
+                         dx-text-box="{ width: 200 }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Nombres:</div>
+                <div class="ContentInput">
+                    <div id="dtbALF_NOMB"
+                         dx-text-box="{ width: 300 }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Correo:</div>
+                <div class="ContentInput">
+                    <div id="dtbALF_CORR"
+                         dx-text-box="{ width: 300 }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }, { type: 'email' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Teléfono:</div>
+                <div class="ContentInput">
+                    <div id="dtbALF_NUME_TELE"
+                         dx-text-box="{ width: 200 }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Tipo de deporte:</div>
+                <div class="ContentInput">
+                    <div id="dsbCOD_TIPO_DEPO"
+                         ng-init="ListTypesSport()"
+                         dx-select-box="{
+                                            displayExpr: 'ALF_TIPO_DEPO',
+                                            valueExpr: 'COD_TIPO_DEPO',
+                                            width: 200,
+                                            searchEnabled: true,
+                                            searchMode: 'contains',
+                                            onValueChanged: dsbCOD_TIPO_DEPO_onValueChanged
+                                        }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Tipo de cancha:</div>
+                <div class="ContentInput">
+                    <div id="dsbCOD_TIPO_CANC"
+                         dx-select-box="{
+                                            displayExpr: 'ALF_TIPO_CANC',
+                                            valueExpr: 'COD_TIPO_CANC',
+                                            width: 300,
+                                            searchEnabled: true,
+                                            searchMode: 'contains',
+                                            showClearButton: true
+                                        }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Día:</div>
+                <div class="ContentInput">
+                    <div id="ddbFEC_HORA_RESE"
+                         dx-date-box="{ displayFormat: 'dd/MM/yyyy', width: 200 }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="ContentLabel140">Horario:</div>
+                <div class="ContentInput">
+                    <div id="dsbCOD_HORA"
+                         ng-init="ListTimeTable()"
+                         dx-select-box="{
+                                            displayExpr: 'ALF_HORA',
+                                            valueExpr: 'COD_HORA',
+                                            width: 200,
+                                            searchEnabled: true,
+                                            searchMode: 'contains',
+                                            showClearButton: true
+                                        }"
+                         dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValOrdr' }">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div>
+                <div class="ContentLabel140"></div>
+                <div class="ContentButton">
+                    <div dx-button="{ type: 'default', text: 'Enviar', width: 100, onClick: SaveOrder }">
+                    </div>
+                </div>
+                <div class="ContentButton">
+                    <div dx-button="{ type: 'default', text: 'Limpiar', width: 100, onClick: ClearControls }">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{
+  "dashboard": {
+    "RESERVATION": "Bandeja de Reservaciones"
+  },
+  "topbar": {
+    "user": {
+      "LOCKSCREEN" : "Bloquear Pantalla",
+      "LOGOUT": "Log Out"
+    }
+  },
+  "sidebar": {
+    "heading": {
+      "NAVIGATION": "Navegaci&oacute;n Principal"
+    },
+    "search": {
+      "PLACEHOLDER": "Buscar..."
+    },
+    "nav": {
+      "dashboard": {
+      	"MAIN": "Inicio"
+      },
+      "reservation": {
+        "MAIN": "Mantenimiento",
+        "TYPESPORT": "Tipos de Deporte",
+        "TYPECOURTS": "Tipos de Cancha",
+        "TIMETABLE": "Horarios"
+      },
+      "tables": {
+        "MAIN": "Reportes",
+        "REPORT1": "Reporte de Reservaciones"
+      }
+    }
+  },
+  "footer": {
+    "copyright": {
+    	"MAIN": "Copyright",
+      	"MESSAGE": "Todos los derechos reservados"
+    }
+  },
+  "setting": {
+  	"MAIN" : "Selector de estilo",
+    "FIXEDHEADER": "Fixed header",
+    "FIXEDSIDEBAR": "Fixed sidebar",
+    "CLOSEDSIDEBAR": "Closed sidebar",
+    "FIXEDFOOTER": "Fixed footer"
+  }
+}
