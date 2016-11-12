@@ -43,7 +43,7 @@ namespace ReservationServices.DataAccess
         }
 
         /// <summary>
-        /// Listar los tipos de deporte
+        /// Listar los tipos de deporte registrados
         /// </summary>
         public IDataReader ListTypesSport()
         {
