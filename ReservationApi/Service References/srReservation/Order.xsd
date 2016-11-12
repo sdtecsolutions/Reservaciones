@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBETypeSport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BETypeSport" nillable="true" type="tns:BETypeSport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBETypeSport" nillable="true" type="tns:ArrayOfBETypeSport" />
+  <xs:complexType name="BETypeSport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALF_TIPO_DEPO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_TIPO_DEPO" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BETypeSport" nillable="true" type="tns:BETypeSport" />
+  <xs:complexType name="ArrayOfBETypeCourts">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BETypeCourts" nillable="true" type="tns:BETypeCourts" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBETypeCourts" nillable="true" type="tns:ArrayOfBETypeCourts" />
+  <xs:complexType name="BETypeCourts">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALF_TIPO_CANC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_TIPO_CANC" type="xs:int" />
+      <xs:element minOccurs="0" name="COD_TIPO_DEPO" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BETypeCourts" nillable="true" type="tns:BETypeCourts" />
+  <xs:complexType name="ArrayOfBETimeTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BETimeTable" nillable="true" type="tns:BETimeTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBETimeTable" nillable="true" type="tns:ArrayOfBETimeTable" />
+  <xs:complexType name="BETimeTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALF_HORA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_HORA" type="xs:int" />
+      <xs:element minOccurs="0" name="HOR_FINA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HOR_INIC" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BETimeTable" nillable="true" type="tns:BETimeTable" />
+  <xs:complexType name="BEOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALF_CORR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_HORA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_MNSG_ERRO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_NOMB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_NUME_DOCU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_NUME_PEDI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_NUME_TELE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_TIPO_CANC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_TIPO_DEPO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_TIPO_DOCU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_CLIE" type="xs:int" />
+      <xs:element minOccurs="0" name="COD_HORA" type="xs:int" />
+      <xs:element minOccurs="0" name="COD_PEDI" type="xs:int" />
+      <xs:element minOccurs="0" name="COD_TIPO_CANC" type="xs:int" />
+      <xs:element minOccurs="0" name="COD_TIPO_DEPO" type="xs:int" />
+      <xs:element minOccurs="0" name="FEC_HORA_RESE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FEC_RESE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HOR_INIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IND_ESTA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MON_DEUD" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MON_PAGA" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MON_PAGO" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BEOrder" nillable="true" type="tns:BEOrder" />
+  <xs:complexType name="ArrayOfBEOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BEOrder" nillable="true" type="tns:BEOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBEOrder" nillable="true" type="tns:ArrayOfBEOrder" />
+  <xs:complexType name="BELogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALF_PASS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_USUA" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BELogin" nillable="true" type="tns:BELogin" />
+</xs:schema>
