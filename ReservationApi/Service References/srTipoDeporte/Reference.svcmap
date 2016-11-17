@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="737aea81-e57a-49bd-9d02-57bf88dce85e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2588/ServiceApp/TipoDeporte.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TipoDeporte.disco" MetadataType="Disco" ID="2917ec70-3f84-40ac-9115-b518b268b487" SourceId="1" SourceUrl="http://localhost:2588/ServiceApp/TipoDeporte.svc?disco" />
+    <MetadataFile FileName="TipoDeporte.wsdl" MetadataType="Wsdl" ID="0e504ff5-4ff4-4142-a220-d09a3b7ae778" SourceId="1" SourceUrl="http://localhost:2588/ServiceApp/TipoDeporte.svc?wsdl" />
+    <MetadataFile FileName="TipoDeporte.xsd" MetadataType="Schema" ID="92b11be4-183b-4c5b-b790-849527e75a27" SourceId="1" SourceUrl="http://localhost:2588/ServiceApp/TipoDeporte.svc?xsd=xsd0" />
+    <MetadataFile FileName="TipoDeporte1.xsd" MetadataType="Schema" ID="bcebf7a6-91b7-40d6-a21f-2b67c620ebff" SourceId="1" SourceUrl="http://localhost:2588/ServiceApp/TipoDeporte.svc?xsd=xsd1" />
+    <MetadataFile FileName="TipoDeporte2.xsd" MetadataType="Schema" ID="79446152-3a0a-47ed-b0ba-76827ec09aa0" SourceId="1" SourceUrl="http://localhost:2588/ServiceApp/TipoDeporte.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

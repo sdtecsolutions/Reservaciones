@@ -9,10 +9,11 @@ namespace ReservationREST.ServiceApp
 {
     public class TipoDeporte : ITipoDeporte
     {
+
         /// <summary>
         /// Listar tipos de deporte
         /// </summary>
-        public List<BETipoDeporte> Listar_TiposDeporte()
+        public List<BETipoDeporte> getTipoDeportes()
         {
             var obr = new BRTipoDeporte();
             var olst = obr.Listar_TiposDeporte();
@@ -22,7 +23,7 @@ namespace ReservationREST.ServiceApp
         /// <summary>
         /// Registrar tipo de deporte
         /// </summary>
-        public BETipoDeporte Registrar_TipoDeporte(BETipoDeporte obj)
+        public BETipoDeporte postTipoDeportes(BETipoDeporte obj)
         {
             try
             {
@@ -44,14 +45,17 @@ namespace ReservationREST.ServiceApp
         /// <summary>
         /// Actualizar tipo de deporte
         /// </summary>
-        public BETipoDeporte Actualizar_TipoDeporte(BETipoDeporte obj)
+        public BETipoDeporte putTipoDeportes(BETipoDeporte obj)
         {
             var obr = new BRTipoDeporte();
             obr.Actualizar_TipoDeporte(obj);
             return obj;
         }
 
-        public List<BETipoDeporte> Obtener_TipoDeporte(string COD_TIPO_DEPO)
+        /// <summary>
+        /// Obtener tipo de deporte
+        /// </summary>
+        public List<BETipoDeporte> getTipoDeportes(string COD_TIPO_DEPO)
         {
             //throw new NotImplementedException();
             var obr = new BRTipoDeporte();
@@ -62,10 +66,11 @@ namespace ReservationREST.ServiceApp
         /// <summary>
         /// Eliminar tipo de deporte
         /// </summary>
-        public void Eliminar_TipoDeporte(string COD_TIPO_DEPO)
+        public void deleteTipoDeportes(string COD_TIPO_DEPO)
         {
             var obr = new BRTipoDeporte();
             obr.Eliminar_TipoDeporte(int.Parse(COD_TIPO_DEPO));
         }
+
     }
 }

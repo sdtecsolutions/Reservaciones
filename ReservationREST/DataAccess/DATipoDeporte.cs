@@ -144,21 +144,22 @@ namespace ReservationREST.DataAccess
         /// </summary>
         public IDataReader Obtener_TipoDeporte(int COD_TIPO_DEPO)
         {
-            try
-            {
-                if (ocn.State == ConnectionState.Closed) ocn.Open();
-                var ocmd = odb.GetStoredProcCommand("OBT_TIPO_DEPORTE", COD_TIPO_DEPO);
-                ocmd.CommandTimeout = 2000;
-                var odr = odb.ExecuteReader(ocmd);
-                return (odr);
+            
+                try
+                {
+                    if (ocn.State == ConnectionState.Closed) ocn.Open();
+                    var ocmd = odb.GetStoredProcCommand("OBT_TIPO_DEPORTE", COD_TIPO_DEPO);
+                    ocmd.CommandTimeout = 2000;
+                    var odr = odb.ExecuteReader(ocmd);
+                    return (odr);
+                }
+                finally
+                {
+                    ocn.Close();
+                    Dispose(false);
+                }
+       
             }
-            finally
-            {
-                ocn.Close();
-                Dispose(false);
-            }
-        }
-
         /// <summary>
         /// Eliminar el tipo de deporte
         /// </summary>
