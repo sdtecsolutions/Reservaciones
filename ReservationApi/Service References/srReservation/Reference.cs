@@ -434,6 +434,9 @@ namespace ReservationApi.srReservation {
         private int COD_PEDIField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int COD_RESEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int COD_TIPO_CANCField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -635,6 +638,19 @@ namespace ReservationApi.srReservation {
                 if ((this.COD_PEDIField.Equals(value) != true)) {
                     this.COD_PEDIField = value;
                     this.RaisePropertyChanged("COD_PEDI");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int COD_RESE {
+            get {
+                return this.COD_RESEField;
+            }
+            set {
+                if ((this.COD_RESEField.Equals(value) != true)) {
+                    this.COD_RESEField = value;
+                    this.RaisePropertyChanged("COD_RESE");
                 }
             }
         }

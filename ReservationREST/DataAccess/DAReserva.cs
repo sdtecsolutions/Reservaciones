@@ -40,6 +40,26 @@ namespace ReservationREST.DataAccess
         }
 
         /// <summary>
+        /// Buscar reserva
+        /// </summary>
+        public IDataReader Buscar_Reserva(int COD_PEDI)
+        {
+            try
+            {
+                if (ocn.State == ConnectionState.Closed) ocn.Open();
+                var ocmd = odb.GetStoredProcCommand("SRC_RESERVA", COD_PEDI);
+                ocmd.CommandTimeout = 2000;
+                var odr = odb.ExecuteReader(ocmd);
+                return (odr);
+            }
+            finally
+            {
+                ocn.Close();
+                Dispose(false);
+            }
+        }
+
+        /// <summary>
         /// Registrar reserva
         /// </summary>
         public void Registrar_Reserva(BEReserva obj)
@@ -91,8 +111,7 @@ namespace ReservationREST.DataAccess
                 {
                     try
                     {
-                        using (var ocmd = odb.GetStoredProcCommand("UPD_RESERVA", obj.COD_RESE,
-                                                                                  obj.COD_PEDI,
+                        using (var ocmd = odb.GetStoredProcCommand("UPD_RESERVA", obj.COD_PEDI,
                                                                                   obj.MON_PAGA,
                                                                                   obj.MON_PAGO))
                         {

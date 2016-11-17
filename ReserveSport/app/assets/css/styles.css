@@ -11369,3 +11369,6 @@ td.small-width {
     font-size: 20px;
     font-weight: bold;
 }
+.dx-popup-bottom .dx-button {
+    min-width: 50px;
+}

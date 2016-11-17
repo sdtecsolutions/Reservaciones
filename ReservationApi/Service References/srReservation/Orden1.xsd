@@ -69,6 +69,7 @@
       <xs:element minOccurs="0" name="COD_CLIE" type="xs:int" />
       <xs:element minOccurs="0" name="COD_HORA" type="xs:int" />
       <xs:element minOccurs="0" name="COD_PEDI" type="xs:int" />
+      <xs:element minOccurs="0" name="COD_RESE" type="xs:int" />
       <xs:element minOccurs="0" name="COD_TIPO_CANC" type="xs:int" />
       <xs:element minOccurs="0" name="COD_TIPO_DEPO" type="xs:int" />
       <xs:element minOccurs="0" name="FEC_HORA_RESE" type="xs:dateTime" />
