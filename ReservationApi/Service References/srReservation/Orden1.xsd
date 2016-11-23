@@ -42,6 +42,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BEHorario" nillable="true" type="tns:BEHorario" />
+  <xs:complexType name="BECliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALF_CORR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_MNSG_ERRO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_NOMB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_NUME_DOCU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_NUME_TELE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALF_TIPO_DOCU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COD_CLIE" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BECliente" nillable="true" type="tns:BECliente" />
   <xs:complexType name="BEOrden">
     <xs:sequence>
       <xs:element minOccurs="0" name="ALF_CORR" nillable="true" type="xs:string" />

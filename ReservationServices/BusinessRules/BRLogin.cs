@@ -11,7 +11,7 @@ namespace ReservationServices.BusinessRules
     public class BRLogin
     {
         /// <summary>
-        /// Listar los tipos de deporte
+        /// Realizar logueo
         /// </summary>
         public int Login(BELogin obj)
         {

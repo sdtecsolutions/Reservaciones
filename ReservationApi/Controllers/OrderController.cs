@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -80,6 +78,20 @@ namespace ReservationApi.Controllers
             try
             {
                 var proxy = new OrdenClient();
+
+                var objcl = new BECliente()
+                {
+                    ALF_TIPO_DOCU = obj.ALF_TIPO_DOCU,
+                    ALF_NUME_DOCU = obj.ALF_NUME_DOCU,
+                    ALF_NOMB = obj.ALF_NOMB,
+                    ALF_CORR = obj.ALF_CORR,
+                    ALF_NUME_TELE = obj.ALF_NUME_TELE
+                };
+                var cliente = proxy.Registrar_Cliente(objcl);
+                if (!string.IsNullOrWhiteSpace(cliente.ALF_MNSG_ERRO))
+                    throw new ArgumentException(cliente.ALF_MNSG_ERRO);
+
+                obj.COD_CLIE = cliente.COD_CLIE;
                 var order = proxy.Registrar_Orden(obj);
                 if (!string.IsNullOrWhiteSpace(order.ALF_MNSG_ERRO))
                     throw new ArgumentException(order.ALF_MNSG_ERRO);

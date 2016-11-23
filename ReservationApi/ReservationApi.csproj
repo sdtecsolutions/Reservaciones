@@ -123,6 +123,9 @@
     <Content Include="Service References\srReservation\ReservationApi.srReservation.BETipoDeporte.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\srReservation\ReservationApi.srReservation.BECliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -38,6 +38,24 @@ namespace ReservationServices.ServiceApp
         }
 
         /// <summary>
+        /// Registrar cliente
+        /// </summary>
+        public BECliente Registrar_Cliente(BECliente obj)
+        {
+            try
+            {
+                var obr = new BROrden();
+                obr.Registrar_Cliente(obj);
+            }
+            catch (Exception ex)
+            {
+                obj.ALF_MNSG_ERRO = ex.Message;
+            }
+
+            return (obj);
+        }
+
+        /// <summary>
         /// Registrar la solicitud de reserva
         /// </summary>
         public BEOrden Registrar_Orden(BEOrden obj)

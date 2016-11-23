@@ -29,6 +29,12 @@ namespace ReservationServices.ServiceApp
         /// Lista los horarios
         /// </summary>
         [OperationContract]
+        BECliente Registrar_Cliente(BECliente obj);
+
+        /// <summary>
+        /// Lista los horarios
+        /// </summary>
+        [OperationContract]
         BEOrden Registrar_Orden(BEOrden obj);
 
         /// <summary>

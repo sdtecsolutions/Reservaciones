@@ -54,6 +54,22 @@ namespace ReservationServices.BusinessRules
         }
 
         /// <summary>
+        /// Registrar cliente
+        /// </summary>
+        public void Registrar_Cliente(BECliente obj)
+        {
+            try
+            {
+                var oda = new DAOrden();
+                oda.Registrar_Cliente(obj);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Registrar la solicitud de reserva
         /// </summary>
         public void Registrar_Orden(BEOrden obj)

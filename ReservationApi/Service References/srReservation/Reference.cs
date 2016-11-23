@@ -246,6 +246,147 @@ namespace ReservationApi.srReservation {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BECliente", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
+    [System.SerializableAttribute()]
+    public partial class BECliente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ALF_CORRField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ALF_MNSG_ERROField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ALF_NOMBField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ALF_NUME_DOCUField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ALF_NUME_TELEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ALF_TIPO_DOCUField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int COD_CLIEField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ALF_CORR {
+            get {
+                return this.ALF_CORRField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ALF_CORRField, value) != true)) {
+                    this.ALF_CORRField = value;
+                    this.RaisePropertyChanged("ALF_CORR");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ALF_MNSG_ERRO {
+            get {
+                return this.ALF_MNSG_ERROField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ALF_MNSG_ERROField, value) != true)) {
+                    this.ALF_MNSG_ERROField = value;
+                    this.RaisePropertyChanged("ALF_MNSG_ERRO");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ALF_NOMB {
+            get {
+                return this.ALF_NOMBField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ALF_NOMBField, value) != true)) {
+                    this.ALF_NOMBField = value;
+                    this.RaisePropertyChanged("ALF_NOMB");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ALF_NUME_DOCU {
+            get {
+                return this.ALF_NUME_DOCUField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ALF_NUME_DOCUField, value) != true)) {
+                    this.ALF_NUME_DOCUField = value;
+                    this.RaisePropertyChanged("ALF_NUME_DOCU");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ALF_NUME_TELE {
+            get {
+                return this.ALF_NUME_TELEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ALF_NUME_TELEField, value) != true)) {
+                    this.ALF_NUME_TELEField = value;
+                    this.RaisePropertyChanged("ALF_NUME_TELE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ALF_TIPO_DOCU {
+            get {
+                return this.ALF_TIPO_DOCUField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ALF_TIPO_DOCUField, value) != true)) {
+                    this.ALF_TIPO_DOCUField = value;
+                    this.RaisePropertyChanged("ALF_TIPO_DOCU");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int COD_CLIE {
+            get {
+                return this.COD_CLIEField;
+            }
+            set {
+                if ((this.COD_CLIEField.Equals(value) != true)) {
+                    this.COD_CLIEField = value;
+                    this.RaisePropertyChanged("COD_CLIE");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BEOrden", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
     [System.SerializableAttribute()]
     public partial class BEOrden : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -708,6 +849,12 @@ namespace ReservationApi.srReservation {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_Horarios", ReplyAction="http://tempuri.org/IOrden/Listar_HorariosResponse")]
         System.Threading.Tasks.Task<ReservationApi.srReservation.BEHorario[]> Listar_HorariosAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Registrar_Cliente", ReplyAction="http://tempuri.org/IOrden/Registrar_ClienteResponse")]
+        ReservationApi.srReservation.BECliente Registrar_Cliente(ReservationApi.srReservation.BECliente obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Registrar_Cliente", ReplyAction="http://tempuri.org/IOrden/Registrar_ClienteResponse")]
+        System.Threading.Tasks.Task<ReservationApi.srReservation.BECliente> Registrar_ClienteAsync(ReservationApi.srReservation.BECliente obj);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Registrar_Orden", ReplyAction="http://tempuri.org/IOrden/Registrar_OrdenResponse")]
         ReservationApi.srReservation.BEOrden Registrar_Orden(ReservationApi.srReservation.BEOrden obj);
         
@@ -776,6 +923,14 @@ namespace ReservationApi.srReservation {
         
         public System.Threading.Tasks.Task<ReservationApi.srReservation.BEHorario[]> Listar_HorariosAsync() {
             return base.Channel.Listar_HorariosAsync();
+        }
+        
+        public ReservationApi.srReservation.BECliente Registrar_Cliente(ReservationApi.srReservation.BECliente obj) {
+            return base.Channel.Registrar_Cliente(obj);
+        }
+        
+        public System.Threading.Tasks.Task<ReservationApi.srReservation.BECliente> Registrar_ClienteAsync(ReservationApi.srReservation.BECliente obj) {
+            return base.Channel.Registrar_ClienteAsync(obj);
         }
         
         public ReservationApi.srReservation.BEOrden Registrar_Orden(ReservationApi.srReservation.BEOrden obj) {

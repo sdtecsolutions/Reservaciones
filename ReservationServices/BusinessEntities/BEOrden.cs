@@ -33,24 +33,6 @@ namespace ReservationServices.BusinessEntities
         public string IND_ESTA { get; set; }
 
         [DataMember]
-        public int COD_CLIE { get; set; }
-
-        [DataMember]
-        public string ALF_NOMB { get; set; }
-
-        [DataMember]
-        public string ALF_TIPO_DOCU { get; set; }
-
-        [DataMember]
-        public string ALF_NUME_DOCU { get; set; }
-
-        [DataMember]
-        public string ALF_CORR { get; set; }
-
-        [DataMember]
-        public string ALF_NUME_TELE { get; set; }
-
-        [DataMember]
         public string HOR_INIC { get; set; }
 
         [DataMember]
@@ -70,6 +52,24 @@ namespace ReservationServices.BusinessEntities
 
         [DataMember]
         public decimal MON_DEUD { get; set; }
+
+        [DataMember]
+        public int COD_CLIE { get; set; }
+
+        [DataMember]
+        public string ALF_NOMB { get; set; }
+
+        [DataMember]
+        public string ALF_TIPO_DOCU { get; set; }
+
+        [DataMember]
+        public string ALF_NUME_DOCU { get; set; }
+
+        [DataMember]
+        public string ALF_CORR { get; set; }
+
+        [DataMember]
+        public string ALF_NUME_TELE { get; set; }
 
         [DataMember]
         public string ALF_MNSG_ERRO { get; set; }

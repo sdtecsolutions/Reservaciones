@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
@@ -103,6 +100,48 @@ namespace ReservationServices.DataAccess
         }
 
         /// <summary>
+        /// Registrar el cliente
+        /// </summary>
+        public void Registrar_Cliente(BECliente obj)
+        {
+            try
+            {
+                if (ocn.State == ConnectionState.Closed) ocn.Open();
+                using (var obts = ocn.BeginTransaction())
+                {
+                    try
+                    {
+                        using (var ocmd = odb.GetStoredProcCommand("INS_CLIENTE", null,
+                                                                                 obj.ALF_NOMB,
+                                                                                 obj.ALF_TIPO_DOCU,
+                                                                                 obj.ALF_NUME_DOCU,
+                                                                                 obj.ALF_CORR,
+                                                                                 obj.ALF_NUME_TELE))
+                        {
+                            ocmd.CommandTimeout = 2000;
+                            odb.ExecuteNonQuery(ocmd, obts);
+                            obj.COD_CLIE = (int)odb.GetParameterValue(ocmd, "@COD_CLIE");
+                            obts.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        obts.Rollback();
+                        throw new ArgumentException(ex.Message);
+                    }
+                    finally
+                    {
+                        ocn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Registrar la solicitud de reserva
         /// </summary>
         public void Registrar_Orden(BEOrden obj)
@@ -115,15 +154,11 @@ namespace ReservationServices.DataAccess
                     try
                     {
                         using (var ocmd = odb.GetStoredProcCommand("INS_PEDIDO", null,
+                                                                                 obj.COD_CLIE,
                                                                                  obj.COD_TIPO_DEPO,
                                                                                  obj.COD_TIPO_CANC,
                                                                                  obj.COD_HORA,
-                                                                                 obj.FEC_HORA_RESE,
-                                                                                 obj.ALF_NOMB,
-                                                                                 obj.ALF_TIPO_DOCU,
-                                                                                 obj.ALF_NUME_DOCU,
-                                                                                 obj.ALF_CORR,
-                                                                                 obj.ALF_NUME_TELE))
+                                                                                 obj.FEC_HORA_RESE))
                         {
                             ocmd.CommandTimeout = 2000;
                             odb.ExecuteNonQuery(ocmd, obts);
