@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ReservationServices.BusinessEntities
 {
-    public class BEOrder
+    public class BEOrden
     {
         [DataMember]
         public int COD_PEDI { get; set; }

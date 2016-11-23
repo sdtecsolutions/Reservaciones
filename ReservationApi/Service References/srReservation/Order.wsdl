@@ -2,77 +2,77 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Order" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:26306/ServiceApp/Order.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:26306/ServiceApp/Order.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:26306/ServiceApp/Order.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" />
+      <xsd:import schemaLocation="http://localhost:26306/ServiceApp/Orden.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:26306/ServiceApp/Orden.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:26306/ServiceApp/Orden.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IOrder_ListTypesSport_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListTypesSport" />
+  <wsdl:message name="IOrden_Listar_TiposDeporte_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_TiposDeporte" />
   </wsdl:message>
-  <wsdl:message name="IOrder_ListTypesSport_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListTypesSportResponse" />
+  <wsdl:message name="IOrden_Listar_TiposDeporte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_TiposDeporteResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrder_ListTypeCourts_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListTypeCourts" />
+  <wsdl:message name="IOrden_Listar_TiposCancha_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_TiposCancha" />
   </wsdl:message>
-  <wsdl:message name="IOrder_ListTypeCourts_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListTypeCourtsResponse" />
+  <wsdl:message name="IOrden_Listar_TiposCancha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_TiposCanchaResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrder_ListTimeTable_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListTimeTable" />
+  <wsdl:message name="IOrden_Listar_Horarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_Horarios" />
   </wsdl:message>
-  <wsdl:message name="IOrder_ListTimeTable_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListTimeTableResponse" />
+  <wsdl:message name="IOrden_Listar_Horarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_HorariosResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrder_SetOrder_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetOrder" />
+  <wsdl:message name="IOrden_Registrar_Orden_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registrar_Orden" />
   </wsdl:message>
-  <wsdl:message name="IOrder_SetOrder_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetOrderResponse" />
+  <wsdl:message name="IOrden_Registrar_Orden_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Registrar_OrdenResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrder_ListReservation_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListReservation" />
+  <wsdl:message name="IOrden_Listar_Reservaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_Reservaciones" />
   </wsdl:message>
-  <wsdl:message name="IOrder_ListReservation_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListReservationResponse" />
+  <wsdl:message name="IOrden_Listar_Reservaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_ReservacionesResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrder_LoginUser_InputMessage">
+  <wsdl:message name="IOrden_LoginUser_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginUser" />
   </wsdl:message>
-  <wsdl:message name="IOrder_LoginUser_OutputMessage">
+  <wsdl:message name="IOrden_LoginUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginUserResponse" />
   </wsdl:message>
-  <wsdl:portType name="IOrder">
-    <wsdl:operation name="ListTypesSport">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/ListTypesSport" message="tns:IOrder_ListTypesSport_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/ListTypesSportResponse" message="tns:IOrder_ListTypesSport_OutputMessage" />
+  <wsdl:portType name="IOrden">
+    <wsdl:operation name="Listar_TiposDeporte">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrden/Listar_TiposDeporte" message="tns:IOrden_Listar_TiposDeporte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrden/Listar_TiposDeporteResponse" message="tns:IOrden_Listar_TiposDeporte_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListTypeCourts">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/ListTypeCourts" message="tns:IOrder_ListTypeCourts_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/ListTypeCourtsResponse" message="tns:IOrder_ListTypeCourts_OutputMessage" />
+    <wsdl:operation name="Listar_TiposCancha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrden/Listar_TiposCancha" message="tns:IOrden_Listar_TiposCancha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrden/Listar_TiposCanchaResponse" message="tns:IOrden_Listar_TiposCancha_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListTimeTable">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/ListTimeTable" message="tns:IOrder_ListTimeTable_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/ListTimeTableResponse" message="tns:IOrder_ListTimeTable_OutputMessage" />
+    <wsdl:operation name="Listar_Horarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrden/Listar_Horarios" message="tns:IOrden_Listar_Horarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrden/Listar_HorariosResponse" message="tns:IOrden_Listar_Horarios_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetOrder">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/SetOrder" message="tns:IOrder_SetOrder_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/SetOrderResponse" message="tns:IOrder_SetOrder_OutputMessage" />
+    <wsdl:operation name="Registrar_Orden">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrden/Registrar_Orden" message="tns:IOrden_Registrar_Orden_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrden/Registrar_OrdenResponse" message="tns:IOrden_Registrar_Orden_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListReservation">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/ListReservation" message="tns:IOrder_ListReservation_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/ListReservationResponse" message="tns:IOrder_ListReservation_OutputMessage" />
+    <wsdl:operation name="Listar_Reservaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrden/Listar_Reservaciones" message="tns:IOrden_Listar_Reservaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrden/Listar_ReservacionesResponse" message="tns:IOrden_Listar_Reservaciones_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LoginUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/LoginUser" message="tns:IOrder_LoginUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/LoginUserResponse" message="tns:IOrder_LoginUser_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrden/LoginUser" message="tns:IOrden_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrden/LoginUserResponse" message="tns:IOrden_LoginUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IOrder" type="tns:IOrder">
+  <wsdl:binding name="BasicHttpBinding_IOrden" type="tns:IOrden">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ListTypesSport">
-      <soap:operation soapAction="http://tempuri.org/IOrder/ListTypesSport" style="document" />
+    <wsdl:operation name="Listar_TiposDeporte">
+      <soap:operation soapAction="http://tempuri.org/IOrden/Listar_TiposDeporte" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -80,8 +80,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListTypeCourts">
-      <soap:operation soapAction="http://tempuri.org/IOrder/ListTypeCourts" style="document" />
+    <wsdl:operation name="Listar_TiposCancha">
+      <soap:operation soapAction="http://tempuri.org/IOrden/Listar_TiposCancha" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -89,8 +89,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListTimeTable">
-      <soap:operation soapAction="http://tempuri.org/IOrder/ListTimeTable" style="document" />
+    <wsdl:operation name="Listar_Horarios">
+      <soap:operation soapAction="http://tempuri.org/IOrden/Listar_Horarios" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -98,8 +98,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetOrder">
-      <soap:operation soapAction="http://tempuri.org/IOrder/SetOrder" style="document" />
+    <wsdl:operation name="Registrar_Orden">
+      <soap:operation soapAction="http://tempuri.org/IOrden/Registrar_Orden" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -107,8 +107,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListReservation">
-      <soap:operation soapAction="http://tempuri.org/IOrder/ListReservation" style="document" />
+    <wsdl:operation name="Listar_Reservaciones">
+      <soap:operation soapAction="http://tempuri.org/IOrden/Listar_Reservaciones" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -117,7 +117,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="LoginUser">
-      <soap:operation soapAction="http://tempuri.org/IOrder/LoginUser" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IOrden/LoginUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -127,8 +127,8 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Order">
-    <wsdl:port name="BasicHttpBinding_IOrder" binding="tns:BasicHttpBinding_IOrder">
-      <soap:address location="http://localhost:26306/ServiceApp/Order.svc" />
+    <wsdl:port name="BasicHttpBinding_IOrden" binding="tns:BasicHttpBinding_IOrden">
+      <soap:address location="http://localhost:26306/ServiceApp/Orden.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

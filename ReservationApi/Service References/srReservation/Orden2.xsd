@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:26306/ServiceApp/Orden.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" />
+  <xs:element name="Listar_TiposDeporte">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_TiposDeporteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="Listar_TiposDeporteResult" nillable="true" type="q1:ArrayOfBETipoDeporte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_TiposCancha">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="COD_TIPO_DEPO" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_TiposCanchaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="Listar_TiposCanchaResult" nillable="true" type="q2:ArrayOfBETipoCancha" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_Horarios">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_HorariosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="Listar_HorariosResult" nillable="true" type="q3:ArrayOfBEHorario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Registrar_Orden">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="obj" nillable="true" type="q4:BEOrden" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Registrar_OrdenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="Registrar_OrdenResult" nillable="true" type="q5:BEOrden" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_Reservaciones">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_ReservacionesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="Listar_ReservacionesResult" nillable="true" type="q6:ArrayOfBEOrden" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="obj" nillable="true" type="q7:BELogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

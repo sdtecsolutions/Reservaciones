@@ -31,6 +31,7 @@ function ($rootScope, $state, $stateParams, $location, $cookieStore) {
             isFooterFixed: false, // true if you want to initialize the template with fixed footer
             theme: 'theme-1', // indicate the theme chosen for your project
             logo: 'assets/images/LogoSport.jpg', // relative path of the project logo
+            titleoption: ''
         }
     };
 

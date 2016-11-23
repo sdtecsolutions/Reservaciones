@@ -9,11 +9,11 @@ using ReservationServices.BusinessEntities;
 
 namespace ReservationServices.DataAccess
 {
-    public class DAOrder : IDisposable
+    public class DAOrden : IDisposable
     {
         private Database odb;
         private DbConnection ocn;
-        public DAOrder()
+        public DAOrden()
         {
             odb = DatabaseFactory.CreateDatabase("ReservationConnectionString");
             ocn = odb.CreateConnection();
@@ -37,7 +37,7 @@ namespace ReservationServices.DataAccess
             }
             disposed = true;
         }
-        ~DAOrder()
+        ~DAOrden()
         {
             Dispose(false);
         }
@@ -45,7 +45,7 @@ namespace ReservationServices.DataAccess
         /// <summary>
         /// Listar los tipos de deporte
         /// </summary>
-        public IDataReader ListTypesSport()
+        public IDataReader Listar_TiposDeporte()
         {
             try
             {
@@ -65,7 +65,7 @@ namespace ReservationServices.DataAccess
         /// <summary>
         /// Listar los tipos de cancha
         /// </summary>
-        public IDataReader ListTypeCourts(int COD_TIPO_DEPO)
+        public IDataReader Listar_TiposCancha(int COD_TIPO_DEPO)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace ReservationServices.DataAccess
         /// <summary>
         /// Listar los horarios
         /// </summary>
-        public IDataReader ListTimeTable()
+        public IDataReader Listar_Horarios()
         {
             try
             {
@@ -105,7 +105,7 @@ namespace ReservationServices.DataAccess
         /// <summary>
         /// Registrar la solicitud de reserva
         /// </summary>
-        public void SetOrder(BEOrder obj)
+        public void Registrar_Orden(BEOrden obj)
         {
             try
             {
@@ -151,7 +151,7 @@ namespace ReservationServices.DataAccess
         /// <summary>
         /// Listar las reservaciones
         /// </summary>
-        public IDataReader ListReservation()
+        public IDataReader Listar_Reservaciones()
         {
             try
             {

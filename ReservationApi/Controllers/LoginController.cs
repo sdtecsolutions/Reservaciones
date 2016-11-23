@@ -17,7 +17,7 @@ namespace ReservationApi.Controllers
         {
             try
             {
-                var proxy = new OrderClient();
+                var proxy = new OrdenClient();
                 var result = proxy.LoginUser(obj);
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);

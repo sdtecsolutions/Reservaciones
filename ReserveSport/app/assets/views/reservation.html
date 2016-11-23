@@ -1,16 +1,8 @@
 ﻿<!-- start: RESERVATION TITLE -->
 <div ng-controller="ReservationCtrl">
-    <section id="page-title" class="padding-top-5 padding-bottom-5">
-        <div class="row">
-            <div class="col-sm-7">
-                <h1 class="mainTitle" translate="dashboard.RESERVATION">Reservation</h1>
-            </div>
-        </div>
-    </section>
-    <div class="container-fluid container-fullw bg-white">
+    <div class="ContentTable">
         <div class="row">
             <div class="col-md-12">
-                <h5 class="over-title margin-bottom-15"><span class="text-bold">Lista de Reservaciones Pendientes</span></h5>
                 <div id="dlpcustomLoad" dx-load-panel="{ message: 'Cargando...', showIndicator: true }"></div>
                 <div id="gdvReservation"
                      ng-init="list_Reservation()"
@@ -86,7 +78,7 @@
                                     selection: {
                                                     mode: 'single'
                                     },
-                                    height: 420,
+                                    height: hgt,
                                     noDataText: '',
                                     showBorders: true,
                                     showRowLines: true,

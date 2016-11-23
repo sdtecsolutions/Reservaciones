@@ -15,12 +15,12 @@ namespace ReservationApi.Controllers
         /// </summary>
         [HttpPost]
         [Route("listardeportes")]
-        public HttpResponseMessage ListTypesSport()
+        public HttpResponseMessage Listar_TiposDeporte()
         {
             try
             {
-                var proxy = new OrderClient();
-                var result = proxy.ListTypesSport();
+                var proxy = new OrdenClient();
+                var result = proxy.Listar_TiposDeporte();
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }
@@ -35,12 +35,12 @@ namespace ReservationApi.Controllers
         /// </summary>
         [HttpPost]
         [Route("listarcanchas")]
-        public HttpResponseMessage ListTypeCourts([FromBody] int COD_TIPO_DEPO)
+        public HttpResponseMessage Listar_TiposCancha([FromBody] int COD_TIPO_DEPO)
         {
             try
             {
-                var proxy = new OrderClient();
-                var result = proxy.ListTypeCourts(COD_TIPO_DEPO);
+                var proxy = new OrdenClient();
+                var result = proxy.Listar_TiposCancha(COD_TIPO_DEPO);
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }
@@ -55,12 +55,12 @@ namespace ReservationApi.Controllers
         /// </summary>
         [HttpPost]
         [Route("listarhorarios")]
-        public HttpResponseMessage ListTimeTable()
+        public HttpResponseMessage Listar_Horarios()
         {
             try
             {
-                var proxy = new OrderClient();
-                var result = proxy.ListTimeTable();
+                var proxy = new OrdenClient();
+                var result = proxy.Listar_Horarios();
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }
@@ -75,12 +75,12 @@ namespace ReservationApi.Controllers
         /// </summary>
         [HttpPost]
         [Route("registrarsolicitud")]
-        public HttpResponseMessage SetOrder(BEOrder obj)
+        public HttpResponseMessage Registrar_Orden(BEOrden obj)
         {
             try
             {
-                var proxy = new OrderClient();
-                var order = proxy.SetOrder(obj);
+                var proxy = new OrdenClient();
+                var order = proxy.Registrar_Orden(obj);
                 if (!string.IsNullOrWhiteSpace(order.ALF_MNSG_ERRO))
                     throw new ArgumentException(order.ALF_MNSG_ERRO);
 
@@ -97,12 +97,12 @@ namespace ReservationApi.Controllers
         /// </summary>
         [HttpPost]
         [Route("listarreservaciones")]
-        public HttpResponseMessage ListReservation()
+        public HttpResponseMessage Listar_Reservaciones()
         {
             try
             {
-                var proxy = new OrderClient();
-                var result = proxy.ListReservation();
+                var proxy = new OrdenClient();
+                var result = proxy.Listar_Reservaciones();
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);
             }

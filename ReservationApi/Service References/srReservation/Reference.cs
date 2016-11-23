@@ -15,9 +15,9 @@ namespace ReservationApi.srReservation {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BETypeSport", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BETipoDeporte", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
     [System.SerializableAttribute()]
-    public partial class BETypeSport : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BETipoDeporte : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -76,9 +76,9 @@ namespace ReservationApi.srReservation {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BETypeCourts", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BETipoCancha", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
     [System.SerializableAttribute()]
-    public partial class BETypeCourts : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BETipoCancha : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -153,9 +153,9 @@ namespace ReservationApi.srReservation {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BETimeTable", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BEHorario", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
     [System.SerializableAttribute()]
-    public partial class BETimeTable : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BEHorario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -246,9 +246,9 @@ namespace ReservationApi.srReservation {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BEOrder", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BEOrden", Namespace="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities")]
     [System.SerializableAttribute()]
-    public partial class BEOrder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class BEOrden : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -687,111 +687,111 @@ namespace ReservationApi.srReservation {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="srReservation.IOrder")]
-    public interface IOrder {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="srReservation.IOrden")]
+    public interface IOrden {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListTypesSport", ReplyAction="http://tempuri.org/IOrder/ListTypesSportResponse")]
-        ReservationApi.srReservation.BETypeSport[] ListTypesSport();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_TiposDeporte", ReplyAction="http://tempuri.org/IOrden/Listar_TiposDeporteResponse")]
+        ReservationApi.srReservation.BETipoDeporte[] Listar_TiposDeporte();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListTypesSport", ReplyAction="http://tempuri.org/IOrder/ListTypesSportResponse")]
-        System.Threading.Tasks.Task<ReservationApi.srReservation.BETypeSport[]> ListTypesSportAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_TiposDeporte", ReplyAction="http://tempuri.org/IOrden/Listar_TiposDeporteResponse")]
+        System.Threading.Tasks.Task<ReservationApi.srReservation.BETipoDeporte[]> Listar_TiposDeporteAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListTypeCourts", ReplyAction="http://tempuri.org/IOrder/ListTypeCourtsResponse")]
-        ReservationApi.srReservation.BETypeCourts[] ListTypeCourts(int COD_TIPO_DEPO);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_TiposCancha", ReplyAction="http://tempuri.org/IOrden/Listar_TiposCanchaResponse")]
+        ReservationApi.srReservation.BETipoCancha[] Listar_TiposCancha(int COD_TIPO_DEPO);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListTypeCourts", ReplyAction="http://tempuri.org/IOrder/ListTypeCourtsResponse")]
-        System.Threading.Tasks.Task<ReservationApi.srReservation.BETypeCourts[]> ListTypeCourtsAsync(int COD_TIPO_DEPO);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_TiposCancha", ReplyAction="http://tempuri.org/IOrden/Listar_TiposCanchaResponse")]
+        System.Threading.Tasks.Task<ReservationApi.srReservation.BETipoCancha[]> Listar_TiposCanchaAsync(int COD_TIPO_DEPO);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListTimeTable", ReplyAction="http://tempuri.org/IOrder/ListTimeTableResponse")]
-        ReservationApi.srReservation.BETimeTable[] ListTimeTable();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_Horarios", ReplyAction="http://tempuri.org/IOrden/Listar_HorariosResponse")]
+        ReservationApi.srReservation.BEHorario[] Listar_Horarios();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListTimeTable", ReplyAction="http://tempuri.org/IOrder/ListTimeTableResponse")]
-        System.Threading.Tasks.Task<ReservationApi.srReservation.BETimeTable[]> ListTimeTableAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_Horarios", ReplyAction="http://tempuri.org/IOrden/Listar_HorariosResponse")]
+        System.Threading.Tasks.Task<ReservationApi.srReservation.BEHorario[]> Listar_HorariosAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/SetOrder", ReplyAction="http://tempuri.org/IOrder/SetOrderResponse")]
-        ReservationApi.srReservation.BEOrder SetOrder(ReservationApi.srReservation.BEOrder obj);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Registrar_Orden", ReplyAction="http://tempuri.org/IOrden/Registrar_OrdenResponse")]
+        ReservationApi.srReservation.BEOrden Registrar_Orden(ReservationApi.srReservation.BEOrden obj);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/SetOrder", ReplyAction="http://tempuri.org/IOrder/SetOrderResponse")]
-        System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrder> SetOrderAsync(ReservationApi.srReservation.BEOrder obj);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Registrar_Orden", ReplyAction="http://tempuri.org/IOrden/Registrar_OrdenResponse")]
+        System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrden> Registrar_OrdenAsync(ReservationApi.srReservation.BEOrden obj);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListReservation", ReplyAction="http://tempuri.org/IOrder/ListReservationResponse")]
-        ReservationApi.srReservation.BEOrder[] ListReservation();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_Reservaciones", ReplyAction="http://tempuri.org/IOrden/Listar_ReservacionesResponse")]
+        ReservationApi.srReservation.BEOrden[] Listar_Reservaciones();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ListReservation", ReplyAction="http://tempuri.org/IOrder/ListReservationResponse")]
-        System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrder[]> ListReservationAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_Reservaciones", ReplyAction="http://tempuri.org/IOrden/Listar_ReservacionesResponse")]
+        System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrden[]> Listar_ReservacionesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/LoginUser", ReplyAction="http://tempuri.org/IOrder/LoginUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/LoginUser", ReplyAction="http://tempuri.org/IOrden/LoginUserResponse")]
         int LoginUser(ReservationApi.srReservation.BELogin obj);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/LoginUser", ReplyAction="http://tempuri.org/IOrder/LoginUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/LoginUser", ReplyAction="http://tempuri.org/IOrden/LoginUserResponse")]
         System.Threading.Tasks.Task<int> LoginUserAsync(ReservationApi.srReservation.BELogin obj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IOrderChannel : ReservationApi.srReservation.IOrder, System.ServiceModel.IClientChannel {
+    public interface IOrdenChannel : ReservationApi.srReservation.IOrden, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class OrderClient : System.ServiceModel.ClientBase<ReservationApi.srReservation.IOrder>, ReservationApi.srReservation.IOrder {
+    public partial class OrdenClient : System.ServiceModel.ClientBase<ReservationApi.srReservation.IOrden>, ReservationApi.srReservation.IOrden {
         
-        public OrderClient() {
+        public OrdenClient() {
         }
         
-        public OrderClient(string endpointConfigurationName) : 
+        public OrdenClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public OrderClient(string endpointConfigurationName, string remoteAddress) : 
+        public OrdenClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public OrderClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public OrdenClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public OrderClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public OrdenClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public ReservationApi.srReservation.BETypeSport[] ListTypesSport() {
-            return base.Channel.ListTypesSport();
+        public ReservationApi.srReservation.BETipoDeporte[] Listar_TiposDeporte() {
+            return base.Channel.Listar_TiposDeporte();
         }
         
-        public System.Threading.Tasks.Task<ReservationApi.srReservation.BETypeSport[]> ListTypesSportAsync() {
-            return base.Channel.ListTypesSportAsync();
+        public System.Threading.Tasks.Task<ReservationApi.srReservation.BETipoDeporte[]> Listar_TiposDeporteAsync() {
+            return base.Channel.Listar_TiposDeporteAsync();
         }
         
-        public ReservationApi.srReservation.BETypeCourts[] ListTypeCourts(int COD_TIPO_DEPO) {
-            return base.Channel.ListTypeCourts(COD_TIPO_DEPO);
+        public ReservationApi.srReservation.BETipoCancha[] Listar_TiposCancha(int COD_TIPO_DEPO) {
+            return base.Channel.Listar_TiposCancha(COD_TIPO_DEPO);
         }
         
-        public System.Threading.Tasks.Task<ReservationApi.srReservation.BETypeCourts[]> ListTypeCourtsAsync(int COD_TIPO_DEPO) {
-            return base.Channel.ListTypeCourtsAsync(COD_TIPO_DEPO);
+        public System.Threading.Tasks.Task<ReservationApi.srReservation.BETipoCancha[]> Listar_TiposCanchaAsync(int COD_TIPO_DEPO) {
+            return base.Channel.Listar_TiposCanchaAsync(COD_TIPO_DEPO);
         }
         
-        public ReservationApi.srReservation.BETimeTable[] ListTimeTable() {
-            return base.Channel.ListTimeTable();
+        public ReservationApi.srReservation.BEHorario[] Listar_Horarios() {
+            return base.Channel.Listar_Horarios();
         }
         
-        public System.Threading.Tasks.Task<ReservationApi.srReservation.BETimeTable[]> ListTimeTableAsync() {
-            return base.Channel.ListTimeTableAsync();
+        public System.Threading.Tasks.Task<ReservationApi.srReservation.BEHorario[]> Listar_HorariosAsync() {
+            return base.Channel.Listar_HorariosAsync();
         }
         
-        public ReservationApi.srReservation.BEOrder SetOrder(ReservationApi.srReservation.BEOrder obj) {
-            return base.Channel.SetOrder(obj);
+        public ReservationApi.srReservation.BEOrden Registrar_Orden(ReservationApi.srReservation.BEOrden obj) {
+            return base.Channel.Registrar_Orden(obj);
         }
         
-        public System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrder> SetOrderAsync(ReservationApi.srReservation.BEOrder obj) {
-            return base.Channel.SetOrderAsync(obj);
+        public System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrden> Registrar_OrdenAsync(ReservationApi.srReservation.BEOrden obj) {
+            return base.Channel.Registrar_OrdenAsync(obj);
         }
         
-        public ReservationApi.srReservation.BEOrder[] ListReservation() {
-            return base.Channel.ListReservation();
+        public ReservationApi.srReservation.BEOrden[] Listar_Reservaciones() {
+            return base.Channel.Listar_Reservaciones();
         }
         
-        public System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrder[]> ListReservationAsync() {
-            return base.Channel.ListReservationAsync();
+        public System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrden[]> Listar_ReservacionesAsync() {
+            return base.Channel.Listar_ReservacionesAsync();
         }
         
         public int LoginUser(ReservationApi.srReservation.BELogin obj) {

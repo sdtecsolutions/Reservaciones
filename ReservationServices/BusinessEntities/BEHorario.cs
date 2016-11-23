@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ReservationServices.BusinessEntities
 {
-    public class BETimeTable
+    public class BEHorario
     {
         [DataMember]
         public int COD_HORA { get; set; }

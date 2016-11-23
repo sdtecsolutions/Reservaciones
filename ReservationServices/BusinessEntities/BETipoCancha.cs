@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ReservationServices.BusinessEntities
 {
-    public class BETypeCourts
+    public class BETipoCancha
     {
         [DataMember]
         public int COD_TIPO_DEPO { get; set; }

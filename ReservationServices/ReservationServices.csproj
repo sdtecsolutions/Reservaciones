@@ -85,23 +85,23 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ServiceApp\Order.svc" />
+    <Content Include="ServiceApp\Orden.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessEntities\BELogin.cs" />
-    <Compile Include="BusinessEntities\BEOrder.cs" />
-    <Compile Include="BusinessEntities\BETimeTable.cs" />
-    <Compile Include="BusinessEntities\BETypeCourts.cs" />
-    <Compile Include="BusinessEntities\BETypeSport.cs" />
+    <Compile Include="BusinessEntities\BEOrden.cs" />
+    <Compile Include="BusinessEntities\BEHorario.cs" />
+    <Compile Include="BusinessEntities\BETipoCancha.cs" />
+    <Compile Include="BusinessEntities\BETipoDeporte.cs" />
     <Compile Include="BusinessRules\BRLogin.cs" />
-    <Compile Include="BusinessRules\BROrder.cs" />
+    <Compile Include="BusinessRules\BROrden.cs" />
     <Compile Include="DataAccess\DALogin.cs" />
-    <Compile Include="DataAccess\DAOrder.cs" />
+    <Compile Include="DataAccess\DAOrden.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceApp\IOrder.cs" />
-    <Compile Include="ServiceApp\Order.svc.cs">
-      <DependentUpon>Order.svc</DependentUpon>
+    <Compile Include="ServiceApp\IOrden.cs" />
+    <Compile Include="ServiceApp\Orden.svc.cs">
+      <DependentUpon>Orden.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

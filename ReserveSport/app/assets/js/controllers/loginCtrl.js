@@ -31,9 +31,10 @@ angular.module('Authentication', [])
         $scope.Login = function () {
             var result = DevExpress.validationEngine.validateGroup('ValGroup');
             if (result.isValid) {
+                $('#loadContainer').dxLoadPanel({ position: { of: $('#frmlogin'), at: 'center' } });
                 $('#loadContainer').dxLoadPanel('instance').show();
                 var username = $('#dtbUserName').dxTextBox('instance').option('value');
-                var password = $('#txtPassword').dxTextBox('instance').option('value');
+                var password = $('#dtbPassword').dxTextBox('instance').option('value');
                 var objl = { COD_USUA: username, ALF_PASS: password };
                 var pars = JSON.stringify(objl);
 

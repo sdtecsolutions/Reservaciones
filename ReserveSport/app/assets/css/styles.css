@@ -11353,3 +11353,19 @@ td.small-width {
     margin: 0 auto;
     padding: 0;
 }
+
+.titleoptions {
+    float: left;
+    width: 400px;
+    height: 62px;
+    line-height: 62px;
+    text-align: left;
+}
+
+.titleoptionstext {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 20px;
+    font-weight: bold;
+}

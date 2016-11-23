@@ -1,8 +1,11 @@
 ﻿'use strict';
 
-app.controller('ReservationCtrl', ["$scope", "$http", function ($scope, $http) {
+app.controller('ReservationCtrl', ["$scope", "$http", "$rootScope", function ($scope, $http, $rootScope) {
+    $rootScope.app.layout.titleoption = 'Reservaciones Pendientes';
+    $scope.hgt = $('#app').height() - 55;
+
     $scope.list_Reservation = function () {
-        //$('#gdvReservation').dxDataGrid({ height: $scope.hgt });
+        $('#gdvReservation').dxDataGrid({ height: $scope.hgt });
         $('#dlpcustomLoad').dxLoadPanel({ position: { of: $('#gdvReservation'), at: 'center' } });
         $('#dlpcustomLoad').dxLoadPanel('instance').option('visible', true);
 

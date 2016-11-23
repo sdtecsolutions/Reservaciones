@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <None Include="Service References\srReservation\Order.disco" />
+    <None Include="Service References\srReservation\Orden.disco" />
     <None Include="Service References\srReservation\configuration91.svcinfo" />
     <None Include="Service References\srReservation\configuration.svcinfo" />
     <None Include="Service References\srReservation\Reference.svcmap">
@@ -84,22 +84,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Web.config" />
-    <None Include="Service References\srReservation\Order.wsdl" />
-    <None Include="Service References\srReservation\Order.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\srReservation\Order1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\srReservation\Order2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Service References\srReservation\ReservationApi.srReservation.BETypeSport.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\srReservation\ReservationApi.srReservation.BETypeCourts.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -117,10 +101,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Service References\srReservation\ReservationApi.srReservation.BETimeTable.datasource">
+    <None Include="Service References\srReservation\Orden.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srReservation\Orden1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srReservation\Orden2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srReservation\Order.wsdl" />
+    <Content Include="Service References\srReservation\ReservationApi.srReservation.BEHorario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\srReservation\ReservationApi.srReservation.BEOrder.datasource">
+    <Content Include="Service References\srReservation\ReservationApi.srReservation.BEOrden.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\srReservation\ReservationApi.srReservation.BETipoCancha.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\srReservation\ReservationApi.srReservation.BETipoDeporte.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
@@ -134,11 +134,11 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\srReservation\" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\srReservation\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

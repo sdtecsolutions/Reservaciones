@@ -5,42 +5,42 @@ using ReservationServices.BusinessRules;
 
 namespace ReservationServices.ServiceApp
 {
-    public class Order : IOrder
+    public class Order : IOrden
     {
         /// <summary>
         /// Listar los tipos de deporte
         /// </summary>
-        public List<BETypeSport> ListTypesSport()
+        public List<BETipoDeporte> Listar_TiposDeporte()
         {
-            var obr = new BROrder();
-            var olst = obr.ListTypesSport();
+            var obr = new BROrden();
+            var olst = obr.Listar_TiposDeporte();
             return (olst);
         }
 
         /// <summary>
         /// Listar los tipos de cancha
         /// </summary>
-        public List<BETypeCourts> ListTypeCourts(int COD_TIPO_DEPO)
+        public List<BETipoCancha> Listar_TiposCancha(int COD_TIPO_DEPO)
         {
-            var obr = new BROrder();
-            var olst = obr.ListTypeCourts(COD_TIPO_DEPO);
+            var obr = new BROrden();
+            var olst = obr.Listar_TiposCancha(COD_TIPO_DEPO);
             return (olst);
         }
 
         /// <summary>
         /// Listar los horarios
         /// </summary>
-        public List<BETimeTable> ListTimeTable()
+        public List<BEHorario> Listar_Horarios()
         {
-            var obr = new BROrder();
-            var olst = obr.ListTimeTable();
+            var obr = new BROrden();
+            var olst = obr.Listar_Horarios();
             return (olst);
         }
 
         /// <summary>
         /// Registrar la solicitud de reserva
         /// </summary>
-        public BEOrder SetOrder(BEOrder obj)
+        public BEOrden Registrar_Orden(BEOrden obj)
         {
             try
             {
@@ -57,8 +57,8 @@ namespace ReservationServices.ServiceApp
                         throw new ArgumentException("El horario seleccionado debe ser mayor a la hora actual.");
                 }
 
-                var obr = new BROrder();
-                obr.SetOrder(obj);
+                var obr = new BROrden();
+                obr.Registrar_Orden(obj);
             }
             catch (Exception ex)
             {
@@ -71,10 +71,10 @@ namespace ReservationServices.ServiceApp
         /// <summary>
         /// Listar las reservaciones
         /// </summary>
-        public List<BEOrder> ListReservation()
+        public List<BEOrden> Listar_Reservaciones()
         {
-            var obr = new BROrder();
-            var olst = obr.ListReservation();
+            var obr = new BROrden();
+            var olst = obr.Listar_Reservaciones();
             return (olst);
         }
 
