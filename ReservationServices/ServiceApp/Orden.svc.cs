@@ -69,7 +69,7 @@ namespace ReservationServices.ServiceApp
         }
 
         /// <summary>
-        /// Listar las reservaciones
+        /// Listar las reservas creadas por el  cliente
         /// </summary>
         public List<BEOrden> Listar_Reservaciones()
         {
