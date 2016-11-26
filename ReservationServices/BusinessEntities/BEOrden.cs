@@ -72,6 +72,9 @@ namespace ReservationServices.BusinessEntities
         public string ALF_NUME_TELE { get; set; }
 
         [DataMember]
+        public int COD_RESE { get; set; }
+
+        [DataMember]
         public string ALF_MNSG_ERRO { get; set; }
     }
 }

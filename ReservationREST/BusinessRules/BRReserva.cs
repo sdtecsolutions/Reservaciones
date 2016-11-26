@@ -12,6 +12,23 @@ namespace ReservationREST.BusinessRules
     public class BRReserva
     {
         /// <summary>
+        /// Listar los tipos de deporte
+        /// </summary>
+        public BEReserva Buscar_Reserva(int COD_PEDI)
+        {
+            var oda = new DAReserva();
+            using (var odr = oda.Buscar_Reserva(COD_PEDI))
+            {
+                var olst = new List<BEReserva>();
+                ((IList)olst).LoadFromReader<BEReserva>(odr);
+                var objr = new BEReserva();
+                if (olst.Count > 0)
+                    objr = olst[0];
+                return (objr);
+            }
+        }
+
+        /// <summary>
         /// Registrar reserva
         /// </summary>
         public void Registrar_Reserva(BEReserva obj)

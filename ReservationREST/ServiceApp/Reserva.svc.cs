@@ -4,15 +4,48 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using ReservationREST.BusinessEntities;
+using ReservationREST.BusinessRules;
 
 namespace ReservationREST.ServiceApp
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Reserva" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Reserva.svc or Reserva.svc.cs at the Solution Explorer and start debugging.
     public class Reserva : IReserva
     {
-        public void DoWork()
+        public BEReserva Buscar_Pedido(string COD_PEDI)
         {
+            var obr = new BRReserva();
+            var obj = obr.Buscar_Reserva(Convert.ToInt32(COD_PEDI));
+            return (obj);
         }
+        public BEReserva Registrar_Reserva(BEReserva obj)
+        {
+            try
+            {
+                var obr = new BRReserva();
+                obr.Registrar_Reserva(obj);
+            }
+            catch (Exception ex)
+            {
+                obj.ALF_MNSG_ERRO = ex.Message;
+            }
+
+            return (obj);
+        }
+
+        public BEReserva Actualizar_Reserva(BEReserva obj)
+        {
+            try
+            {
+                var obr = new BRReserva();
+                obr.Actualizar_Reserva(obj);
+            }
+            catch (Exception ex)
+            {
+                obj.ALF_MNSG_ERRO = ex.Message;
+            }
+
+            return (obj);
+        }
+
     }
 }
