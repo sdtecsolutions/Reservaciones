@@ -86,6 +86,7 @@
     <Compile Include="BusinessEntities\BEReserva.cs" />
     <Compile Include="BusinessEntities\BETipoDeporte.cs" />
     <Compile Include="BusinessRules\BRReserva.cs" />
+    <Compile Include="BusinessRules\BRTipoDeporte.cs" />
     <Compile Include="DataAccess\DAReserva.cs" />
     <Compile Include="DataAccess\DATipoDeporte.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
