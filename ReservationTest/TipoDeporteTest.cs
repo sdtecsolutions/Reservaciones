@@ -17,7 +17,7 @@ namespace ReservationTest
             string postdata = "{\"COD_TIPO_DEPO\":6,\"ALF_TIPO_DEPO\":\"yyy\"}"; //JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
-                .Create("http://localhost:60866/ServiceApp/TipoDeporte.svc/TipoDeporte");
+                .Create("http://localhost:2588/ServiceApp/TipoDeporte.svc/TipoDeporte");
             req.Method = "POST";
             req.ContentLength = data.Length;
             req.ContentType = "application/json";
@@ -38,7 +38,7 @@ namespace ReservationTest
         //    string postdata = "{\"COD_TIPO_DEPO\":3,\"ALF_TIPO_DEPO\":\"Tenis\"}"; //JSON
         //    byte[] data = Encoding.UTF8.GetBytes(postdata);
         //    HttpWebRequest req2 = (HttpWebRequest)WebRequest
-        //        .Create("http://localhost:60866/ServiceApp/TipoDeporte.svc/TipoDeporte/3");
+        //        .Create("http://localhost:2588/ServiceApp/TipoDeporte.svc/TipoDeporte/3");
         //    req2.Method = "GET";
         //    HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
         //    StreamReader reader2 = new StreamReader(res2.GetResponseStream());
@@ -55,7 +55,7 @@ namespace ReservationTest
             string postdata = "{\"COD_TIPO_DEPO\":6,\"ALF_TIPO_DEPO\":\"Golf\"}"; //JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req3 = (HttpWebRequest)WebRequest
-                .Create("http://localhost:60866/ServiceApp/TipoDeporte.svc/TipoDeporte");
+                .Create("http://localhost:2588/ServiceApp/TipoDeporte.svc/TipoDeporte");
             req3.Method = "PUT";
             req3.ContentLength = data.Length;
             req3.ContentType = "application/json";
@@ -68,31 +68,32 @@ namespace ReservationTest
             BETipoDeporte tipodeporteModificado = js3.Deserialize<BETipoDeporte>(tipodeporteJson3);
             Assert.AreEqual(6, tipodeporteModificado.COD_TIPO_DEPO);
             Assert.AreEqual("Golf", tipodeporteModificado.ALF_TIPO_DEPO);
+
         }
 
         [TestMethod]
         public void Test4()
         {
             // Prueba de eliminar de alumno vía HTTP DELETE
-            string postdata = "{\"COD_TIPO_DEPO\":2,\"ALF_TIPO_DEPO\":\"Futbol\"}"; //JSON
+            string postdata = "{\"COD_TIPO_DEPO\":6,\"ALF_TIPO_DEPO\":\"Golf\"}"; //JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req4 = (HttpWebRequest)WebRequest
-                .Create("http://localhost:60866/ServiceApp/TipoDeporte.svc/TipoDeporte/2");
+                .Create("http://localhost:2588/ServiceApp/TipoDeporte.svc/TipoDeporte/6");
             req4.Method = "DELETE";
             HttpWebResponse res4 = (HttpWebResponse)req4.GetResponse();
             StreamReader reader4 = new StreamReader(res4.GetResponseStream());
             string tipodeporteJson4 = reader4.ReadToEnd();
             JavaScriptSerializer js4 = new JavaScriptSerializer();
 
-            HttpWebRequest req2 = (HttpWebRequest)WebRequest
-            .Create("http://localhost:60866/ServiceApp/TipoDeporte.svc/TipoDeporte/2");
-            req2.Method = "GET";
-            HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
-            StreamReader reader2 = new StreamReader(res2.GetResponseStream());
-            string tipodeporteJson2 = reader2.ReadToEnd();
-            JavaScriptSerializer js2 = new JavaScriptSerializer();
-            BETipoDeporte tipodeporteObtenido = js2.Deserialize<BETipoDeporte>(tipodeporteJson2);
-            Assert.AreEqual(null, tipodeporteObtenido);
+            //HttpWebRequest req2 = (HttpWebRequest)WebRequest
+            //.Create("http://localhost:2588/ServiceApp/TipoDeporte.svc/TipoDeporte/6");
+            //req2.Method = "GET";
+            //HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
+            //StreamReader reader2 = new StreamReader(res2.GetResponseStream());
+            //string tipodeporteJson2 = reader2.ReadToEnd();
+            //JavaScriptSerializer js2 = new JavaScriptSerializer();
+            //BETipoDeporte tipodeporteObtenido = js2.Deserialize<BETipoDeporte>(tipodeporteJson2);
+            //Assert.AreEqual(null, tipodeporteObtenido);
 
         }
     }
