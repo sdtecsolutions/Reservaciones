@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationApi", "Reservati
 		{34F6EC8C-B0AD-4A05-BE70-16C2AB3679F6} = {34F6EC8C-B0AD-4A05-BE70-16C2AB3679F6}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationREST", "ReservationREST\ReservationREST.csproj", "{D9F2FCD0-9D24-4D86-A3C5-DA5865B86655}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{BB2B32B7-08E1-4215-AB30-07C3027B6828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB2B32B7-08E1-4215-AB30-07C3027B6828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB2B32B7-08E1-4215-AB30-07C3027B6828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9F2FCD0-9D24-4D86-A3C5-DA5865B86655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9F2FCD0-9D24-4D86-A3C5-DA5865B86655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9F2FCD0-9D24-4D86-A3C5-DA5865B86655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9F2FCD0-9D24-4D86-A3C5-DA5865B86655}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
