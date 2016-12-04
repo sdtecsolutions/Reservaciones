@@ -10,7 +10,7 @@ app.controller('TypesCourtsCtrl', ["$scope", "$rootScope", "$http", function ($s
     };
 
     $scope.list_TypesCourts = function () {
-        $('#gdvTypesCourts').dxDataGrid({ loadPanel: { enabled: false }, height: $scope.hgt });
+        $('#gdvTypesCourts').dxDataGrid({ loadPanel: { enabled: false } });
         $('#dlpcustomLoad').dxLoadPanel({ position: { of: $('#gdvTypesCourts'), at: 'center' } });
         $('#dlpcustomLoad').dxLoadPanel('instance').option('visible', true);
 

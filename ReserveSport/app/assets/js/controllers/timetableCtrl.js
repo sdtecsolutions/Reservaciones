@@ -17,7 +17,7 @@ app.controller('TimeTableCtrl', ["$scope", "$rootScope", "$http", function ($sco
     };
 
     $scope.list_TimeTable = function () {
-        $('#gdvTimeTable').dxDataGrid({ loadPanel: { enabled: false }, height: $scope.hgt });
+        $('#gdvTimeTable').dxDataGrid({ loadPanel: { enabled: false } });
         $('#dlpcustomLoad').dxLoadPanel({ position: { of: $('#gdvTimeTable'), at: 'center' } });
         $('#dlpcustomLoad').dxLoadPanel('instance').option('visible', true);
 

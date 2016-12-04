@@ -10,7 +10,7 @@ app.controller('TypesSportCtrl', ["$scope", "$rootScope", "$http", function ($sc
     };
 
     $scope.list_TypesSport = function () {
-        $('#gdvTypesSport').dxDataGrid({ loadPanel: { enabled: false }, height: $scope.hgt });
+        $('#gdvTypesSport').dxDataGrid({ loadPanel: { enabled: false } });
         $('#dlpcustomLoad').dxLoadPanel({ position: { of: $('#gdvTypesSport'), at: 'center' } });
         $('#dlpcustomLoad').dxLoadPanel('instance').option('visible', true);
 
