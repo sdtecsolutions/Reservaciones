@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using ResultSetMappers;
 using ReservationREST.BusinessEntities;
 using ReservationREST.DataAccess;
@@ -14,10 +12,10 @@ namespace ReservationREST.BusinessRules
         /// <summary>
         /// Listar los tipos de deporte
         /// </summary>
-        public List<BETipoDeporte> Listar_TiposDeporte()
+        public List<BETipoDeporte> ListarTipoDeporte()
         {
             var oda = new DATipoDeporte();
-            using (var odr = oda.Listar_TiposDeporte())
+            using (var odr = oda.ListarTipoDeporte())
             {
                 var olst = new List<BETipoDeporte>();
                 ((IList)olst).LoadFromReader<BETipoDeporte>(odr);
@@ -26,14 +24,32 @@ namespace ReservationREST.BusinessRules
         }
 
         /// <summary>
+        /// Obtener tipo de deporte
+        /// </summary>
+        public BETipoDeporte ObtenerTipoDeporte(int COD_TIPO_DEPO)
+        {
+            var obj = new BETipoDeporte();
+            var oda = new DATipoDeporte();
+            using (var odr = oda.ObtenerTipoDeporte(COD_TIPO_DEPO))
+            {
+                var olst = new List<BETipoDeporte>();
+                ((IList)olst).LoadFromReader<BETipoDeporte>(odr);
+                if (olst.Count > 0)
+                    obj = olst[0];
+
+                return (obj);
+            }
+        }
+
+        /// <summary>
         /// Registrar tipo de deporte
         /// </summary>
-        public void Registrar_TipoDeporte(BETipoDeporte obj)
+        public void RegistrarTipoDeporte(BETipoDeporte obj)
         {
             try
             {
                 var oda = new DATipoDeporte();
-                oda.Registrar_TipoDeporte(obj);
+                oda.RegistrarTipoDeporte(obj);
             }
             catch (Exception ex)
             {
@@ -44,12 +60,12 @@ namespace ReservationREST.BusinessRules
         /// <summary>
         /// Actualizar tipo de deporte
         /// </summary>
-        public void Actualizar_TipoDeporte(BETipoDeporte obj)
+        public void ActualizarTipoDeporte(BETipoDeporte obj)
         {
             try
             {
                 var oda = new DATipoDeporte();
-                oda.Actualizar_TipoDeporte(obj);
+                oda.ActualizarTipoDeporte(obj);
             }
             catch (Exception ex)
             {
@@ -58,28 +74,14 @@ namespace ReservationREST.BusinessRules
         }
 
         /// <summary>
-        /// Obtener tipo de deporte
-        /// </summary>
-        public List<BETipoDeporte> Obtener_TipoDeporte(int COD_TIPO_DEPO)
-        {
-            var oda = new DATipoDeporte();
-            using (var odr = oda.Obtener_TipoDeporte(COD_TIPO_DEPO))
-            {
-                var olst = new List<BETipoDeporte>();
-                ((IList)olst).LoadFromReader<BETipoDeporte>(odr);
-                return (olst);
-            }
-        }
-
-        /// <summary>
         /// Eliminar tipo de deporte
         /// </summary>
-        public void Eliminar_TipoDeporte(int COD_TIPO_DEPO)
+        public void EliminarTipoDeporte(int COD_TIPO_DEPO)
         {
             try
             {
                 var oda = new DATipoDeporte();
-                oda.Eliminar_TipoDeporte(COD_TIPO_DEPO);
+                oda.EliminarTipoDeporte(COD_TIPO_DEPO);
             }
             catch (Exception ex)
             {

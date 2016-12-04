@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
@@ -42,7 +42,7 @@ namespace ReservationREST.DataAccess
         /// <summary>
         /// Listar los tipos de deportes registrados
         /// </summary>
-        public IDataReader Listar_TiposDeporte()
+        public IDataReader ListarTipoDeporte()
         {
             try
             {
@@ -60,9 +60,29 @@ namespace ReservationREST.DataAccess
         }
 
         /// <summary>
+        /// Obtener el tipo de deporte
+        /// </summary>
+        public IDataReader ObtenerTipoDeporte(int COD_TIPO_DEPO)
+        {
+            try
+            {
+                if (ocn.State == ConnectionState.Closed) ocn.Open();
+                var ocmd = odb.GetStoredProcCommand("OBT_TIPO_DEPORTE", COD_TIPO_DEPO);
+                ocmd.CommandTimeout = 2000;
+                var odr = odb.ExecuteReader(ocmd);
+                return (odr);
+            }
+            finally
+            {
+                ocn.Close();
+                Dispose(false);
+            }
+        }
+
+        /// <summary>
         /// Registrar el tipo de deporte
         /// </summary>
-        public void Registrar_TipoDeporte(BETipoDeporte obj)
+        public void RegistrarTipoDeporte(BETipoDeporte obj)
         {
             try
             {
@@ -71,14 +91,11 @@ namespace ReservationREST.DataAccess
                 {
                     try
                     {
-                        using (var ocmd = odb.GetStoredProcCommand("INS_TIPODEPORTE",
-                                                                                 obj.COD_TIPO_DEPO,
-                                                                                 obj.ALF_TIPO_DEPO))
+                        using (var ocmd = odb.GetStoredProcCommand("INS_TIPODEPORTE", obj.COD_TIPO_DEPO,
+                                                                                      obj.ALF_TIPO_DEPO))
                         {
                             ocmd.CommandTimeout = 2000;
                             odb.ExecuteNonQuery(ocmd, obts);
-                            obj.COD_TIPO_DEPO = (int)odb.GetParameterValue(ocmd, "@COD_TIPO_DEPO");
-                            obj.ALF_TIPO_DEPO = (string)odb.GetParameterValue(ocmd, "@ALF_TIPO_DEPO");
                             obts.Commit();
                         }
                     }
@@ -102,7 +119,7 @@ namespace ReservationREST.DataAccess
         /// <summary>
         /// Actualizar el tipo de deporte
         /// </summary>
-        public void Actualizar_TipoDeporte(BETipoDeporte obj)
+        public void ActualizarTipoDeporte(BETipoDeporte obj)
         {
             try
             {
@@ -111,14 +128,11 @@ namespace ReservationREST.DataAccess
                 {
                     try
                     {
-                        using (var ocmd = odb.GetStoredProcCommand("ACT_TIPODEPORTE",
-                                                                                 obj.COD_TIPO_DEPO,
-                                                                                 obj.ALF_TIPO_DEPO))
+                        using (var ocmd = odb.GetStoredProcCommand("ACT_TIPODEPORTE", obj.COD_TIPO_DEPO,
+                                                                                      obj.ALF_TIPO_DEPO))
                         {
                             ocmd.CommandTimeout = 2000;
                             odb.ExecuteNonQuery(ocmd, obts);
-                            obj.COD_TIPO_DEPO = (int)odb.GetParameterValue(ocmd, "@COD_TIPO_DEPO");
-                            obj.ALF_TIPO_DEPO = (string)odb.GetParameterValue(ocmd, "@ALF_TIPO_DEPO");
                             obts.Commit();
                         }
                     }
@@ -140,30 +154,9 @@ namespace ReservationREST.DataAccess
         }
 
         /// <summary>
-        /// Obtener el tipo de deporte
-        /// </summary>
-        public IDataReader Obtener_TipoDeporte(int COD_TIPO_DEPO)
-        {
-            
-                try
-                {
-                    if (ocn.State == ConnectionState.Closed) ocn.Open();
-                    var ocmd = odb.GetStoredProcCommand("OBT_TIPO_DEPORTE", COD_TIPO_DEPO);
-                    ocmd.CommandTimeout = 2000;
-                    var odr = odb.ExecuteReader(ocmd);
-                    return (odr);
-                }
-                finally
-                {
-                    ocn.Close();
-                    Dispose(false);
-                }
-       
-            }
-        /// <summary>
         /// Eliminar el tipo de deporte
         /// </summary>
-        public void Eliminar_TipoDeporte(int COD_TIPO_DEPO)
+        public void EliminarTipoDeporte(int COD_TIPO_DEPO)
         {
             try
             {
@@ -172,8 +165,7 @@ namespace ReservationREST.DataAccess
                 {
                     try
                     {
-                        using (var ocmd = odb.GetStoredProcCommand("DEL_TIPODEPORTE",
-                                                                                 COD_TIPO_DEPO))
+                        using (var ocmd = odb.GetStoredProcCommand("DEL_TIPODEPORTE", COD_TIPO_DEPO))
                         {
                             ocmd.CommandTimeout = 2000;
                             odb.ExecuteNonQuery(ocmd, obts);

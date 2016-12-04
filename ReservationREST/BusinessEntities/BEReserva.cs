@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Web;
+﻿using System.Runtime.Serialization;
 
 namespace ReservationREST.BusinessEntities
 {
+    [DataContract]
     public class BEReserva
     {
         [DataMember]
@@ -20,6 +17,8 @@ namespace ReservationREST.BusinessEntities
         public decimal MON_DEUD { get; set; }
         [DataMember]
         public string IND_ESTA { get; set; }
+        [DataMember]
+        public bool IND_CANC { get; set; }
         [DataMember]
         public string ALF_MNSG_ERRO { get; set; }
     }

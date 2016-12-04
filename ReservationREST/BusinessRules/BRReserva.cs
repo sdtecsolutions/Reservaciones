@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using ResultSetMappers;
 using ReservationREST.BusinessEntities;
 using ReservationREST.DataAccess;
@@ -14,10 +12,10 @@ namespace ReservationREST.BusinessRules
         /// <summary>
         /// Listar los tipos de deporte
         /// </summary>
-        public BEReserva Buscar_Reserva(int COD_PEDI)
+        public BEReserva BuscarReserva(int COD_PEDI)
         {
             var oda = new DAReserva();
-            using (var odr = oda.Buscar_Reserva(COD_PEDI))
+            using (var odr = oda.BuscarReserva(COD_PEDI))
             {
                 var olst = new List<BEReserva>();
                 ((IList)olst).LoadFromReader<BEReserva>(odr);
@@ -31,12 +29,12 @@ namespace ReservationREST.BusinessRules
         /// <summary>
         /// Registrar reserva
         /// </summary>
-        public void Registrar_Reserva(BEReserva obj)
+        public void RegistrarReserva(BEReserva obj)
         {
             try
             {
                 var oda = new DAReserva();
-                oda.Registrar_Reserva(obj);
+                oda.RegistrarReserva(obj);
             }
             catch (Exception ex)
             {
@@ -47,16 +45,30 @@ namespace ReservationREST.BusinessRules
         /// <summary>
         /// Actualizar reserva
         /// </summary>
-        public void Actualizar_Reserva(BEReserva obj)
+        public void ActualizarReserva(BEReserva obj)
         {
             try
             {
                 var oda = new DAReserva();
-                oda.Actualizar_Reserva(obj);
+                oda.ActualizarReserva(obj);
             }
             catch (Exception ex)
             {
                 throw new ArgumentException(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Reporte de reservas
+        /// </summary>
+        public List<BEOrden> ReporteReserva(DateTime FEC_INIC, DateTime FEC_FINA)
+        {
+            var oda = new DAReserva();
+            using (var odr = oda.ReporteReserva(FEC_INIC, FEC_FINA))
+            {
+                var olst = new List<BEOrden>();
+                ((IList)olst).LoadFromReader<BEOrden>(odr);
+                return (olst);
             }
         }
     }

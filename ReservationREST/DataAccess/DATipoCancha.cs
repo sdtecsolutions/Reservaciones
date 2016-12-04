@@ -6,11 +6,11 @@ using ReservationREST.BusinessEntities;
 
 namespace ReservationREST.DataAccess
 {
-    public class DAReserva : IDisposable
+    public class DATipoCancha : IDisposable
     {
         private Database odb;
         private DbConnection ocn;
-        public DAReserva()
+        public DATipoCancha()
         {
             odb = DatabaseFactory.CreateDatabase("ReservationConnectionString");
             ocn = odb.CreateConnection();
@@ -34,20 +34,20 @@ namespace ReservationREST.DataAccess
             }
             disposed = true;
         }
-        ~DAReserva()
+        ~DATipoCancha()
         {
             Dispose(false);
         }
 
         /// <summary>
-        /// Buscar reserva
+        /// Listar los tipos de cancha registrados
         /// </summary>
-        public IDataReader BuscarReserva(int COD_PEDI)
+        public IDataReader ListarTipoCancha()
         {
             try
             {
                 if (ocn.State == ConnectionState.Closed) ocn.Open();
-                var ocmd = odb.GetStoredProcCommand("SRC_RESERVA", COD_PEDI);
+                var ocmd = odb.GetStoredProcCommand("LST_TIPO_CANCHA01");
                 ocmd.CommandTimeout = 2000;
                 var odr = odb.ExecuteReader(ocmd);
                 return (odr);
@@ -60,49 +60,29 @@ namespace ReservationREST.DataAccess
         }
 
         /// <summary>
-        /// Registrar reserva
+        /// Obtener el tipo de cancha
         /// </summary>
-        public void RegistrarReserva(BEReserva obj)
+        public IDataReader ObtenerTipoCancha(int COD_TIPO_CANCHA)
         {
             try
             {
                 if (ocn.State == ConnectionState.Closed) ocn.Open();
-                using (var obts = ocn.BeginTransaction())
-                {
-                    try
-                    {
-                        using (var ocmd = odb.GetStoredProcCommand("INS_RESERVA", null,
-                                                                                 obj.COD_PEDI,
-                                                                                 obj.MON_PAGA,
-                                                                                 obj.MON_PAGO))
-                        {
-                            ocmd.CommandTimeout = 2000;
-                            odb.ExecuteNonQuery(ocmd, obts);
-                            obj.COD_RESE = (int)odb.GetParameterValue(ocmd, "@COD_RESE");
-                            obts.Commit();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        obts.Rollback();
-                        throw new ArgumentException(ex.Message);
-                    }
-                    finally
-                    {
-                        ocn.Close();
-                    }
-                }
+                var ocmd = odb.GetStoredProcCommand("OBT_TIPO_CANCHA", COD_TIPO_CANCHA);
+                ocmd.CommandTimeout = 2000;
+                var odr = odb.ExecuteReader(ocmd);
+                return (odr);
             }
-            catch (Exception ex)
+            finally
             {
-                throw new ArgumentException(ex.Message);
+                ocn.Close();
+                Dispose(false);
             }
         }
 
         /// <summary>
-        /// Actualizar reserva
+        /// Registrar el tipo de cancha
         /// </summary>
-        public void ActualizarReserva(BEReserva obj)
+        public void RegistrarTipoCancha(BETipoCancha obj)
         {
             try
             {
@@ -111,10 +91,11 @@ namespace ReservationREST.DataAccess
                 {
                     try
                     {
-                        using (var ocmd = odb.GetStoredProcCommand("UPD_RESERVA", obj.COD_PEDI,
-                                                                                  obj.MON_PAGA,
-                                                                                  obj.MON_PAGO,
-                                                                                  obj.IND_CANC))
+                        using (var ocmd = odb.GetStoredProcCommand("INS_TIPOCANCHA", obj.COD_TIPO_CANC,
+                                                                                      obj.ALF_TIPO_CANC,
+                                                                                      obj.COD_TIPO_DEPO,
+                                                                                      obj.NUM_JUGA,
+                                                                                      obj.MON_PREC))
                         {
                             ocmd.CommandTimeout = 2000;
                             odb.ExecuteNonQuery(ocmd, obts);
@@ -139,22 +120,78 @@ namespace ReservationREST.DataAccess
         }
 
         /// <summary>
-        /// Reporte de reservas
+        /// Actualizar el tipo de cancha
         /// </summary>
-        public IDataReader ReporteReserva(DateTime FEC_INIC, DateTime FEC_FINA)
+        public void ActualizarTipoCancha(BETipoCancha obj)
         {
             try
             {
                 if (ocn.State == ConnectionState.Closed) ocn.Open();
-                var ocmd = odb.GetStoredProcCommand("RPT_RESERVA", FEC_INIC, FEC_FINA);
-                ocmd.CommandTimeout = 2000;
-                var odr = odb.ExecuteReader(ocmd);
-                return (odr);
+                using (var obts = ocn.BeginTransaction())
+                {
+                    try
+                    {
+                        using (var ocmd = odb.GetStoredProcCommand("ACT_TIPOCANCHA", obj.COD_TIPO_CANC,
+                                                                                      obj.ALF_TIPO_CANC,
+                                                                                      obj.COD_TIPO_DEPO,
+                                                                                      obj.NUM_JUGA,
+                                                                                      obj.MON_PREC))
+                        {
+                            ocmd.CommandTimeout = 2000;
+                            odb.ExecuteNonQuery(ocmd, obts);
+                            obts.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        obts.Rollback();
+                        throw new ArgumentException(ex.Message);
+                    }
+                    finally
+                    {
+                        ocn.Close();
+                    }
+                }
             }
-            finally
+            catch (Exception ex)
             {
-                ocn.Close();
-                Dispose(false);
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Eliminar el tipo de cancha
+        /// </summary>
+        public void EliminarTipoCancha(int COD_TIPO_CANC)
+        {
+            try
+            {
+                if (ocn.State == ConnectionState.Closed) ocn.Open();
+                using (var obts = ocn.BeginTransaction())
+                {
+                    try
+                    {
+                        using (var ocmd = odb.GetStoredProcCommand("DEL_TIPOCANCHA", COD_TIPO_CANC ))
+                        {
+                            ocmd.CommandTimeout = 2000;
+                            odb.ExecuteNonQuery(ocmd, obts);
+                            obts.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        obts.Rollback();
+                        throw new ArgumentException(ex.Message);
+                    }
+                    finally
+                    {
+                        ocn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
             }
         }
     }

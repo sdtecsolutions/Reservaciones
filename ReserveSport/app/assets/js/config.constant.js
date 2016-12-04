@@ -56,6 +56,10 @@ app.constant('JS_REQUIRES', {
         'orderCtrl': ['assets/js/controllers/orderCtrl.js'],
         'reservationCtrl': ['assets/js/controllers/reservationCtrl.js'],
         'loginCtrl': ['assets/js/controllers/loginCtrl.js'],
+        'typessportCtrl': ['assets/js/controllers/typessportCtrl.js'],
+        'typescourtsCtrl': ['assets/js/controllers/typescourtsCtrl.js'],
+        'timetableCtrl': ['assets/js/controllers/timetableCtrl.js'],
+        'report1Ctrl': ['assets/js/controllers/report1Ctrl.js'],
         
         //*** Filters
         'htmlToPlaintext': 'assets/js/filters/htmlToPlaintext.js'

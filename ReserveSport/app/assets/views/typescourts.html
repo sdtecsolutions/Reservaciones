@@ -1,57 +1,129 @@
-﻿<!-- start: PAGE TITLE -->
-<section id="page-title" class="padding-top-5 padding-bottom-5">
-    <div class="row">
-        <div class="col-sm-7">
-            <h1 class="mainTitle" translate="sidebar.nav.reservation.TYPECOURTS">Type of Courts</h1>
-        </div>
-    </div>
-</section>
-<!-- end: PAGE TITLE -->
-<!-- start: TYPECOURTS -->
-<div class="ContentTable">
-    <div class="row">
-        <div class="col-md-4">
-            <div>
-                <div class="ContentLabel140">Código:</div>
-                <div class="ContentInput">
-                    <div id=""
-                         dx-text-box="{ readOnly: true, width: 200 }">
+﻿<!-- start: TIPO DE CANCHA -->
+<div ng-controller="TypesCourtsCtrl">
+    <div class="ContentTable">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="dlpcustomLoad" dx-load-panel="{ message: 'Cargando...', showIndicator: true }"></div>
+                <div id="gdvTypesCourts"
+                     ng-init="list_TypesCourts()"
+                     dx-data-grid="{
+                                    columns:[
+                                                {
+                                                    alignment: 'center',
+                                                    allowEditing: false,
+                                                    allowSorting: false,
+                                                    cellTemplate: gdvTypesCourts_cellTemplate,
+                                                    headerCellTemplate: gdvTypesCourts_headerCellTemplate,
+                                                    width: 80
+                                                }, {
+                                                    caption: 'Código',
+                                                    dataField: 'COD_TIPO_CANC',
+                                                    width: 150,
+                                                }, {
+                                                    caption: 'Tipo de Cancha',
+                                                    dataField: 'ALF_TIPO_CANC'
+                                                }, {
+                                                    caption: 'Tipo de Deporte',
+                                                    dataField: 'ALF_TIPO_DEPO'
+                                                }, {
+                                                    caption: 'Nro. de Jugadores',
+                                                    dataField: 'NUM_JUGA'
+                                                }, {
+                                                    caption: 'Precio',
+                                                    dataField: 'MON_PREC'
+                                                }
+                                            ],
+                                    filterRow: {
+                                                    visible: true
+                                    },
+                                    sorting: {
+                                                mode: 'multiple'
+                                    },
+                                    paging: {
+                                                pageSize: 10
+                                    },
+                                    pager: {
+                                                showPageSizeSelector: true,
+                                                allowedPageSizes: [10, 20, 50, 100]
+                                    },
+                                    summary: {
+                                                totalItems:[
+                                                                {
+                                                                    column: 'COD_TIPO_CANC',
+                                                                    summaryType: 'count',
+                                                                    displayFormat: 'Total: {0}'
+                                                                }
+                                                            ]
+                                    },
+                                    loadPanel: {
+                                                    enabled: false
+                                    },
+                                    selection: {
+                                                    mode: 'single'
+                                    },
+                                    height: 528,
+                                    noDataText: '',
+                                    showBorders: true,
+                                    showRowLines: true,
+                                    hoverStateEnabled: true,
+                                    twoWayBindingEnabled: false,
+                                    columnAutoWidth: true
+                                }">
+                </div>
+
+                <!-- start: MANTENIMIENTO DE TIPO DE CANCHA -->
+                <div id="dpp_Maintenance"
+                     dx-popup="{ title: 'Mantenimiento de Tipos de Cancha',
+                                 contentTemplate: 'content',
+                                 toolbarItems: dpp_Maintenance_toolbarItems,
+                                 width: 450,
+                                 height: 'auto'
+                    }">
+                    <div data-options="dxTemplate: { name: 'content' }">
+                        <div class="dx-field">
+                            <div class="dx-field-label">Código:</div>
+                            <div class="dx-field-value" id="dtbCOD_TIPO_CANC" dx-text-box="{ readOnly: true }" ng-model="COD_TIPO_CANC"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Tipo de Cancha:</div>
+                            <div class="dx-field-value" id="dtbALF_TIPO_CANC" dx-text-box="{}"
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValMaintenance' }"
+                                 ng-model="ALF_TIPO_CANC"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Tipo de Deporte:</div>
+                            <div class="dx-field-value" id="dsbCOD_TIPO_DEPO" 
+                                   dx-select-box="{
+                                            displayExpr: 'ALF_TIPO_DEPO',
+                                            valueExpr: 'COD_TIPO_DEPO',
+                                            searchEnabled: true,
+                                            searchMode: 'contains',
+                                            showClearButton: true
+                                        }"
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValMaintenance' }"
+                                 ng-model="COD_TIPO_DEPO" ng-init="list_TypesSport()"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Nro. de Jugadores:</div>
+                            <div class="dx-field-value" id="dnbNUM_JUGA" dx-number-box="{ value: 0 }"
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValMaintenance' }"
+                                 ng-model="NUM_JUGA">
+                            </div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Precio:</div>
+                            <div class="dx-field-value" id="dnbMON_PREC" dx-number-box="{ value: 0 }"
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValMaintenance' }"
+                                 ng-model="MON_PREC">
+                            </div>
+                        </div>
+                        <div class="dx-field">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <div class="ContentLabel140">Descripción:</div>
-                <div class="ContentInput">
-                    <div id=""
-                         dx-text-box="{ width: 200 }">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="ContentLabel140">Tipo de deporte:</div>
-                <div class="ContentInput">
-                    <div id=""
-                         dx-select-box="{ width: 200 }">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="ContentLabel140">Número jugadores:</div>
-                <div class="ContentInput">
-                    <div id=""
-                         dx-text-box="{ width: 200 }">
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div>
-                <div class="ContentLabel140"></div>
-                <div class="ContentButton">
-                    <div dx-button="{ type: 'default', text: 'Guardar', width: 100 }">
-                    </div>
-                </div>
+                <!-- end: MANTENIMIENTO DE TIPO DE CANCHA -->
             </div>
         </div>
     </div>
 </div>
-<!-- end: BASIC TYPECOURTS -->
+<!-- end: BASIC TIPO DE CANCHA -->

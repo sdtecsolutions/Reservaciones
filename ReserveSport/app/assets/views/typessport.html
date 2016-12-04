@@ -1,60 +1,93 @@
-﻿<!-- start: PAGE TITLE -->
-<section id="page-title" class="padding-top-5 padding-bottom-5">
-    <div class="row">
-        <div class="col-sm-7">
-            <h1 class="mainTitle" translate="sidebar.nav.reservation.TYPESPORT">Type of Sport</h1>
-        </div>
-    </div>
-</section>
-<!-- end: PAGE TITLE -->
-<!-- start: TYPECOURTS -->
-<div class="ContentTable">
-    <div class="row">
-        <div class="col-md-4">
-            <div>
-                <div class="ContentLabel140">Código:</div>
-                <div class="ContentInput">
-                    <div id=""
-                         dx-text-box="{ readOnly: true, width: 200 }">
+﻿<!-- start: TIPO DE DEPORTE -->
+<div ng-controller="TypesSportCtrl">
+    <div class="ContentTable">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="dlpcustomLoad" dx-load-panel="{ message: 'Cargando...', showIndicator: true }"></div>
+                <div id="gdvTypesSport"
+                     ng-init="list_TypesSport()"
+                     dx-data-grid="{
+                                    columns:[
+                                                {
+                                                    alignment: 'center',
+                                                    allowEditing: false,
+                                                    allowSorting: false,
+                                                    cellTemplate: gdvTypesSport_cellTemplate,
+                                                    headerCellTemplate: gdvTypesSport_headerCellTemplate,
+                                                    width: 80
+                                                }, {
+                                                    caption: 'Código',
+                                                    dataField: 'COD_TIPO_DEPO',
+                                                    width: 150,
+                                                }, {
+                                                    caption: 'Tipo Deporte',
+                                                    dataField: 'ALF_TIPO_DEPO'
+                                                }
+                                            ],
+                                    filterRow: {
+                                                    visible: true
+                                    },
+                                    sorting: {
+                                                mode: 'multiple'
+                                    },
+                                    paging: {
+                                                pageSize: 10
+                                    },
+                                    pager: {
+                                                showPageSizeSelector: true,
+                                                allowedPageSizes: [10, 20, 50, 100]
+                                    },
+                                    summary: {
+                                                totalItems:[
+                                                                {
+                                                                    column: 'COD_TIPO_DEPO',
+                                                                    summaryType: 'count',
+                                                                    displayFormat: 'Total: {0}'
+                                                                }
+                                                            ]
+                                    },
+                                    loadPanel: {
+                                                    enabled: false
+                                    },
+                                    selection: {
+                                                    mode: 'single'
+                                    },
+                                    height: 528,
+                                    noDataText: '',
+                                    showBorders: true,
+                                    showRowLines: true,
+                                    hoverStateEnabled: true,
+                                    twoWayBindingEnabled: false,
+                                    columnAutoWidth: true
+                                }">
+                </div>
+
+                <!-- start: MANTENIMIENTO DE TIPO DE DEPORTE -->
+                <div id="dpp_Maintenance"
+                     dx-popup="{ title: 'Mantenimiento de Tipos de Deporte',
+                                 contentTemplate: 'content',
+                                 toolbarItems: dpp_Maintenance_toolbarItems,
+                                 width: 450,
+                                 height: 'auto'
+                    }">
+                    <div data-options="dxTemplate: { name: 'content' }">
+                        <div class="dx-field">
+                            <div class="dx-field-label">Código:</div>
+                            <div class="dx-field-value" id="dtbCOD_TIPO_DEPO" dx-text-box="{ readOnly: true }" ng-model="COD_TIPO_DEPO"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Tipo de Deporte:</div>
+                            <div class="dx-field-value" id="dtbALF_TIPO_DEPO" dx-text-box="{}" 
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValMaintenance' }"
+                                 ng-model="ALF_TIPO_DEPO"></div>
+                        </div>
+                        <div class="dx-field">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <div class="ContentLabel140">Descripción:</div>
-                <div class="ContentInput">
-                    <div id=""
-                         dx-text-box="{ width: 200 }">
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div>
-                <div class="ContentLabel140"></div>
-                <div class="ContentButton">
-                    <div dx-button="{ type: 'default', text: 'Guardar', width: 100 }">
-                    </div>
-                </div>
+                <!-- end: MANTENIMIENTO DE TIPO DE DEPORTE -->
             </div>
         </div>
     </div>
 </div>
-<!-- end: BASIC TYPECOURTS -->
-<dx:ASPxGridView ID="grid" ClientInstanceName="grid" runat="server" DataSourceID="DemoDataSource1"
-                 KeyFieldName="EmployeeID" AutoGenerateColumns="False" Width="100%">
-    <Columns>
-        <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" VisibleIndex="0" />
-        <dx:GridViewDataTextColumn FieldName="Codigo" VisibleIndex="1">
-            <EditFormSettings VisibleIndex="0" />
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataColumn FieldName="Descripcion" VisibleIndex="4">
-            <EditFormSettings VisibleIndex="1" />
-        </dx:GridViewDataColumn>        
-    </Columns>
-    <SettingsEditing EditFormColumnCount="3" Mode="PopupEditForm" />
-    <SettingsPopup>
-        <EditForm Width="600" />
-    </SettingsPopup>
-    <SettingsPager Mode="ShowAllRecords" />
-    <Settings ShowTitlePanel="true" />
-    <SettingsText Title="Popup Edit Form Editing" />
-</dx:ASPxGridView>
+<!-- end: BASIC TIPO DE DEPORTE -->

@@ -1,0 +1,5 @@
+﻿<%@ ServiceHost Language="C#"
+     Debug="true" 
+    Service="ReservationREST.ServiceApp.TipoCancha" 
+    CodeBehind="TipoCancha.svc.cs" 
+    Factory="System.ServiceModel.Activation.WebServiceHostFactory" %>

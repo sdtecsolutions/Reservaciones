@@ -54,6 +54,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         templateUrl: "assets/views/typessport.html",
         title: 'Types of Sport',
         icon: 'ti-layout-media-left-alt',
+        resolve: loadSequence('typessportCtrl'),
         ncyBreadcrumb: {
             label: 'typesport'
         }
@@ -62,6 +63,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         templateUrl: "assets/views/typescourts.html",
         title: 'Types of Courts',
         icon: 'ti-layout-media-left-alt',
+        resolve: loadSequence('typescourtsCtrl'),
         ncyBreadcrumb: {
             label: 'typecourts'
         }
@@ -69,7 +71,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         url: '/timetable',
         templateUrl: "assets/views/timetable.html",
         title: 'TimeTable',
-        resolve: loadSequence('spin', 'ladda', 'angular-ladda', 'laddaCtrl'),
+        resolve: loadSequence('timetableCtrl'),
         ncyBreadcrumb: {
             label: 'TimeTable'
         }
@@ -77,6 +79,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         url: '/report1',
         templateUrl: "assets/views/report1.html",
         title: 'Reporte 1',
+        resolve: loadSequence('report1Ctrl'),
         ncyBreadcrumb: {
             label: 'Reporte 1'
         }
