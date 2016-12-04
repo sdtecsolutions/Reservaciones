@@ -53,7 +53,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BEHorario.cs" />
+    <Compile Include="BEOrden.cs" />
+    <Compile Include="BEReserva.cs" />
+    <Compile Include="BETipoCancha.cs" />
     <Compile Include="BETipoDeporte.cs" />
+    <Compile Include="ReservasTest.cs" />
+    <Compile Include="TipoCanchaTest.cs" />
     <Compile Include="TipoDeporteTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
