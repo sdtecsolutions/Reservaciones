@@ -1,61 +1,61 @@
-﻿using System.Collections.Generic;
+﻿using ReservationREST.BusinessEntities;
+using System.Collections.Generic;
 using System.ServiceModel;
-using ReservationREST.BusinessEntities;
 using System.ServiceModel.Web;
 
 namespace ReservationREST.ServiceApp
 {
     [ServiceContract]
-    public interface ITipoDeporte
+    public interface IHorario
     {
         /// <summary>
-        /// Lista los tipos de deporte
+        /// Lista los horarios
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "GET", 
-            UriTemplate = "tipodeportes",
+        [WebInvoke(Method = "GET",
+            UriTemplate = "horarios",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        List<BETipoDeporte> ListarTipoDeporte();
+        List<BEHorario> ListarHorario();
 
         /// <summary>
         /// Obtener tipo de deporte
         /// </summary>
         [OperationContract]
         [WebInvoke(Method = "GET",
-            UriTemplate = "tipodeportes/{COD_TIPO_DEPO}",
+            UriTemplate = "horarios/{COD_HORA}",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte ObtenerTipoDeporte(string COD_TIPO_DEPO);
+        BEHorario ObtenerHorario(string COD_HORA);
 
         /// <summary>
-        /// Registrar los tipos de deporte
+        /// Registrar los horarios
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "POST", 
-            UriTemplate = "tipodeportes",
+        [WebInvoke(Method = "POST",
+            UriTemplate = "horarios",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte RegistrarTipoDeporte(BETipoDeporte obj);
+        BEHorario RegistrarHorario(BEHorario obj);
 
         /// <summary>
-        /// Actualizar los tipos de deporte
+        /// Actualizar los horarios
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "PUT", 
-            UriTemplate = "tipodeportes",
+        [WebInvoke(Method = "PUT",
+            UriTemplate = "horarios",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte ActualizarTipoDeporte(BETipoDeporte obj);
+        BEHorario ActualizarHorario(BEHorario obj);
 
         /// <summary>
-        /// Eliminar los tipos de deporte
+        /// Eliminar los horarios
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "DELETE", 
-            UriTemplate = "tipodeportes/{COD_TIPO_DEPO}",
+        [WebInvoke(Method = "DELETE",
+            UriTemplate = "horarios/{COD_HORA}",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte EliminarTipoDeporte(string COD_TIPO_DEPO);
+        BEHorario EliminarHorario(string COD_HORA);
     }
 }

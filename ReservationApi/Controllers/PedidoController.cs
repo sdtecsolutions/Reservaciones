@@ -6,7 +6,7 @@ using ReservationApi.srReservation;
 
 namespace ReservationApi.Controllers
 {
-    public class OrderController : ApiController
+    public class PedidoController : ApiController
     {
         /// <summary>
         /// Listar los tipos de deporte

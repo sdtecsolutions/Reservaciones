@@ -94,7 +94,6 @@
                                  height: 'auto'
                     }">
                     <div data-options="dxTemplate: { name: 'content' }">
-                        <div id="dlpcustomLoad1" dx-load-panel="{ message: 'Guardando...', showIndicator: true }"></div>
                         <div class="dx-field">
                             <div class="dx-field-label">Pedido:</div>
                             <div class="dx-field-value" id="dtbCOD_PEDI" dx-text-box="{ readOnly: true }" ng-model="COD_PEDI"></div>
@@ -113,7 +112,12 @@
                         </div>
                         <div class="dx-field">
                             <div class="dx-field-label">Monto a Pagar:</div>
-                            <div class="dx-field-value" id="dtbMON_SALD" dx-number-box="{ value: 0 }" ng-model="MON_SALD"></div>
+                            <div class="dx-field-value" id="dtbMON_SALD" dx-number-box="{ value: 0 }"
+                                 dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValReserva' }"
+                                 ng-model="MON_SALD">
+                            </div>
+                        </div>
+                        <div class="dx-field">
                         </div>
                     </div>
                 </div>

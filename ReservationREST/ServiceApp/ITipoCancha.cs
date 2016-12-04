@@ -1,61 +1,62 @@
-﻿using System.Collections.Generic;
+﻿using ReservationREST.BusinessEntities;
+using System.Collections.Generic;
 using System.ServiceModel;
-using ReservationREST.BusinessEntities;
 using System.ServiceModel.Web;
 
 namespace ReservationREST.ServiceApp
 {
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ITipoCancha" in both code and config file together.
     [ServiceContract]
-    public interface ITipoDeporte
+    public interface ITipoCancha
     {
         /// <summary>
         /// Lista los tipos de deporte
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "GET", 
-            UriTemplate = "tipodeportes",
+        [WebInvoke(Method = "GET",
+            UriTemplate = "tipocanchas",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        List<BETipoDeporte> ListarTipoDeporte();
+        List<BETipoCancha> ListarTipoCancha();
 
         /// <summary>
         /// Obtener tipo de deporte
         /// </summary>
         [OperationContract]
         [WebInvoke(Method = "GET",
-            UriTemplate = "tipodeportes/{COD_TIPO_DEPO}",
+            UriTemplate = "tipocanchas/{COD_TIPO_CANC}",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte ObtenerTipoDeporte(string COD_TIPO_DEPO);
+        BETipoCancha ObtenerTipoCancha(string COD_TIPO_CANC);
 
         /// <summary>
         /// Registrar los tipos de deporte
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "POST", 
-            UriTemplate = "tipodeportes",
+        [WebInvoke(Method = "POST",
+            UriTemplate = "tipocanchas",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte RegistrarTipoDeporte(BETipoDeporte obj);
+        BETipoCancha RegistrarTipoCancha(BETipoCancha obj);
 
         /// <summary>
         /// Actualizar los tipos de deporte
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "PUT", 
-            UriTemplate = "tipodeportes",
+        [WebInvoke(Method = "PUT",
+            UriTemplate = "tipocanchas",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte ActualizarTipoDeporte(BETipoDeporte obj);
+        BETipoCancha ActualizarTipoCancha(BETipoCancha obj);
 
         /// <summary>
         /// Eliminar los tipos de deporte
         /// </summary>
         [OperationContract]
-        [WebInvoke(Method = "DELETE", 
-            UriTemplate = "tipodeportes/{COD_TIPO_DEPO}",
+        [WebInvoke(Method = "DELETE",
+            UriTemplate = "tipocanchas/{COD_TIPO_CANC}",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        BETipoDeporte EliminarTipoDeporte(string COD_TIPO_DEPO);
+        BETipoCancha EliminarTipoCancha(string COD_TIPO_CANC);
     }
 }

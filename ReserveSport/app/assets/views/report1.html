@@ -1,116 +1,105 @@
-﻿<!-- start: RESERVATION TITLE -->
-<section id="page-title" class="padding-top-5 padding-bottom-5">
-    <div class="row">
-        <div class="col-sm-7">
-            <h1 class="mainTitle" translate="sidebar.nav.tables.REPORT1">Report 1</h1>
-        </div>
-    </div>
-</section>
-<div class="container-fluid container-fullw bg-white">
-    <div class="row">
-        <div>
-            <div class="ContentLabel120">Fecha Inicio:</div>
-            <div class="ContentInput">
-                <div id=""
-                     dx-date-box="{ width: 150 }">
-                </div>
-            </div>
-            <div class="ContentLabel120">Fecha Final:</div>
-            <div class="ContentInput">
-                <div id=""
-                     dx-date-box="{ width: 150 }">
-                </div>
-            </div>
-            <div class="ContentButton">
-                <div dx-button="{ type: 'default', text: 'Buscar', width: 70 }">
-                </div>
-            </div>
-        </div>
-    </div>
-    <br />
-    <div class="row">
+﻿<!-- start: REPORTE DE RESERVACIONES -->
+<div ng-controller="Report1Ctrl">
+    <div class="ContentTable">
         <div class="col-md-12">
-            <h5 class="over-title margin-bottom-15"><span class="text-bold">Lista de Reservaciones</span></h5>
-            <table class="table table-hover" id="sample-table-1">
-                <thead>
-                    <tr>
-                        <th class="center">#</th>
-                        <th>Cliente</th>
-                        <th>Teléfono</th>
-                        <th class="hidden-xs">Fecha</th>
-                        <th>Horario</th>
-                        <th>Cancha</th>
-                        <th>Monto</th>
-                        <th>A Cuenta</th>
-                        <th>Deuda</th>
-                        <th class="hidden-xs">Estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="center">1</td>
-                        <td class="hidden-xs">Jorge Sanchez Huaman</td>
-                        <td>994545619</td>
-                        <td>
-                            <a href="#" rel="nofollow" target="_blank">
-                                29/10/2016
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" rel="nofollow" target="_blank">
-                                18:00 - 19:00
-                            </a>
-                        </td>
-                        <td class="center">6 Jugadores</td>
-                        <td class="center">80.00</td>
-                        <td class="center">50.00</td>
-                        <td class="center">30.00</td>
-                        <td class="hidden-xs">Pendiente de Pago</td>
-                    </tr>
-                    <tr>
-                        <td class="center">2</td>
-                        <td class="hidden-xs">Juan Luna Martínez</td>
-                        <td>967543287</td>
-                        <td>
-                            <a href="#" rel="nofollow" target="_blank">
-                                30/10/2016
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" rel="nofollow" target="_blank">
-                                19:00 - 20:00
-                            </a>
-                        </td>
-                        <td class="center">7 Jugadores</td>
-                        <td class="center">120.00</td>
-                        <td class="center">120.00</td>
-                        <td class="center">0.00</td>
-                        <td class="hidden-xs">Pagada</td>
-                    </tr>
-                    <tr>
-                        <td class="center">3</td>
-                        <td class="hidden-xs">Pedro Velarde Robles</td>
-                        <td>967543876</td>
-                        <td>
-                            <a href="#" rel="nofollow" target="_blank">
-                                29/10/2016
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" rel="nofollow" target="_blank">
-                                21:00 - 22:00
-                            </a>
-                        </td>
-                        <td class="center">6 Jugadores</td>
-                        <td class="center">80.00</td>
-                        <td class="center">60.00</td>
-                        <td class="center">20.00</td>
-                        <td class="hidden-xs">Pendiente de Pago</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <div>
+                    <div class="ContentLabel120">Fecha Inicio:</div>
+                    <div class="ContentInput">
+                        <div id="ddbFEC_INIC"
+                             dx-date-box="{ displayFormat: 'dd/MM/yyyy', type: 'date', width: 150 }"
+                             dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValReport' }">
+
+                        </div>
+                    </div>
+                    <div class="ContentLabel120">Fecha Final:</div>
+                    <div class="ContentInput">
+                        <div id="ddbFEC_FINA"
+                             dx-date-box="{ displayFormat: 'dd/MM/yyyy', type: 'date', width: 150 }"
+                             dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValReport' }">
+                        </div>
+                    </div>
+                    <div class="ContentButton">
+                        <div dx-button="{ type: 'default', hint: 'Buscar', icon: 'find', width: 50, onClick: list_Report1 }">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="dlpcustomLoad" dx-load-panel="{ message: 'Cargando...', showIndicator: true }"></div>
+                <div id="gdvReport1"
+                     dx-data-grid="{
+                                    columns:[
+                                                {
+                                                    caption: 'Solicitud',
+                                                    dataField: 'ALF_NUME_PEDI'
+                                                }, {
+                                                    caption: 'Cliente',
+                                                    dataField: 'ALF_NOMB'
+                                                }, {
+                                                    caption: 'Teléfono',
+                                                    dataField: 'ALF_NUME_TELE'
+                                                }, {
+                                                    caption: 'Fecha',
+                                                    dataField: 'FEC_RESE'
+                                                }, {
+                                                    caption: 'Horario',
+                                                    dataField: 'ALF_HORA'
+                                                }, {
+                                                    caption: 'Deporte',
+                                                    dataField: 'ALF_TIPO_DEPO'
+                                                }, {
+                                                    caption: 'Cancha',
+                                                    dataField: 'ALF_TIPO_CANC'
+                                                }, {
+                                                    caption: 'Deuda',
+                                                    dataField: 'MON_DEUD'
+                                                }, {
+                                                    caption: 'Estado',
+                                                    dataField: 'IND_ESTA'
+                                                }
+                                            ],
+                                    filterRow: {
+                                                    visible: true
+                                    },
+                                    sorting: {
+                                                mode: 'multiple'
+                                    },
+                                    paging: {
+                                                pageSize: 10
+                                    },
+                                    pager: {
+                                                showPageSizeSelector: true,
+                                                allowedPageSizes: [10, 20, 50, 100]
+                                    },
+                                    summary: {
+                                                totalItems:[
+                                                                {
+                                                                    column: 'ALF_NUME_PEDI',
+                                                                    summaryType: 'count',
+                                                                    displayFormat: 'Total: {0}'
+                                                                }
+                                                            ]
+                                    },
+                                    loadPanel: {
+                                                    enabled: false
+                                    },
+                                    selection: {
+                                                    mode: 'single'
+                                    },
+                                    height: 493,
+                                    noDataText: '',
+                                    showBorders: true,
+                                    showRowLines: true,
+                                    hoverStateEnabled: true,
+                                    twoWayBindingEnabled: false,
+                                    columnAutoWidth: true
+                                }">
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<!-- end: BASIC TABLE -->
-<!-- end: RESERVATION TITLE -->
+<!-- end: REPORTE DE RESERVACIONES -->

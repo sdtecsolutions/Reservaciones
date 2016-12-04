@@ -1,28 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 using ReservationREST.BusinessEntities;
 using ReservationREST.BusinessRules;
+using System.Collections.Generic;
 
 namespace ReservationREST.ServiceApp
 {
     public class Reserva : IReserva
     {
-        public BEReserva Buscar_Pedido(string COD_PEDI)
+        public BEReserva ListarPedido(string COD_PEDI)
         {
             var obr = new BRReserva();
-            var obj = obr.Buscar_Reserva(Convert.ToInt32(COD_PEDI));
+            var obj = obr.BuscarReserva(Convert.ToInt32(COD_PEDI));
             return (obj);
         }
-        public BEReserva Registrar_Reserva(BEReserva obj)
+        public BEReserva RegistrarReserva(BEReserva obj)
         {
             try
             {
                 var obr = new BRReserva();
-                obr.Registrar_Reserva(obj);
+                obr.RegistrarReserva(obj);
             }
             catch (Exception ex)
             {
@@ -32,12 +28,12 @@ namespace ReservationREST.ServiceApp
             return (obj);
         }
 
-        public BEReserva Actualizar_Reserva(BEReserva obj)
+        public BEReserva ActualizarReserva(BEReserva obj)
         {
             try
             {
                 var obr = new BRReserva();
-                obr.Actualizar_Reserva(obj);
+                obr.ActualizarReserva(obj);
             }
             catch (Exception ex)
             {
@@ -47,5 +43,13 @@ namespace ReservationREST.ServiceApp
             return (obj);
         }
 
+        public List<BEOrden> ReporteReserva(string FEC_INIC, string FEC_FINA)
+        {
+            var obr = new BRReserva();
+            var inic = Convert.ToDateTime(FEC_INIC);
+            var fina = Convert.ToDateTime(FEC_FINA);
+            var olst = obr.ReporteReserva(inic, fina);
+            return (olst);
+        }
     }
 }
