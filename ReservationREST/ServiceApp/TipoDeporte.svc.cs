@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using ReservationREST.BusinessEntities;
 using ReservationREST.BusinessRules;
