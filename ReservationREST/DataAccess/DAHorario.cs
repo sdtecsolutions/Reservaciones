@@ -40,7 +40,7 @@ namespace ReservationREST.DataAccess
         }
 
         /// <summary>
-        /// Listar los horarios registrados
+        /// Listar los horarios registrados en la base de datos
         /// </summary>
         public IDataReader ListarHorario()
         {

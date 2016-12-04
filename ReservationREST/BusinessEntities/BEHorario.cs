@@ -4,6 +4,7 @@ namespace ReservationREST.BusinessEntities
 {
     public class BEHorario
     {
+        //Atributos de la tabla horario
         [DataMember]
         public int COD_HORA { get; set; }
         [DataMember]
