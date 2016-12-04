@@ -26,6 +26,14 @@ app.controller('Report2Ctrl', ["$scope", "$rootScope", "$http", function ($scope
         return value.toString().replace(/\s/g, '').length < 1;
     };
 
+    $scope.gdvReport2_headerCellTemplate = function (container) {
+        $('<span title="Refrescar" />')
+            .attr('class', 'fa fa-refresh fa-lg')
+            .attr('style', 'cursor: pointer')
+            .on('dxclick', function () { $scope.list_Report2(); })
+            .appendTo(container);
+    };
+
     $scope.list_Report2 = function () {
         $('#gdvReport2').dxDataGrid({ loadPanel: { enabled: false } });
         $('#dlpcustomLoad').dxLoadPanel({ position: { of: $('#gdvReport2'), at: 'center' } });

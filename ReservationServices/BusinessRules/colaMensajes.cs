@@ -55,6 +55,10 @@ namespace ReservationServices.BusinessRules
                 SmtpServer.Send(mail);
 
                 //Actualizando cola de mensaje enviado
+                //cola.PeekById(mensaje.Id);
+
+                //mensaje = new Message();
+                //mensaje.Label = obj.ALF_NUME_PEDI;
                 //mensaje.Body = new BEOrden()
                 //{
                 //    ALF_NUME_PEDI = obj.ALF_NUME_PEDI,
@@ -69,6 +73,7 @@ namespace ReservationServices.BusinessRules
                 //    IND_ENVI = "E"
                 //};
                 //cola.Send(mensaje);
+
                 return "OK";
             });
         }
@@ -77,7 +82,7 @@ namespace ReservationServices.BusinessRules
         {
             var lstMessages = new List<BEOrden>();
             var rutaCola = @".\private$\pedidos";
-            if (!MessageQueue.Exists(rutaCola))
+            if (MessageQueue.Exists(rutaCola))
             {
                 using (var messageQueue = new MessageQueue(rutaCola))
                 {
@@ -86,6 +91,7 @@ namespace ReservationServices.BusinessRules
                     {
                         message.Formatter = new XmlMessageFormatter(new Type[] { typeof(BEOrden) });
                         var orden = (BEOrden)message.Body;
+                        orden.IND_ENVI = (orden.IND_ENVI == "P") ? "Pendiente" : "Enviado";
                         lstMessages.Add(orden);
                     }
                 }                

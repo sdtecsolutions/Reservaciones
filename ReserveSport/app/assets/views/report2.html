@@ -34,6 +34,14 @@
                      dx-data-grid="{
                                     columns:[
                                                 {
+                                                    alignment: 'center',
+                                                    allowEditing: false,
+                                                    allowSorting: false,
+                                                    headerCellTemplate: gdvReport2_headerCellTemplate,
+                                                    width: 50,
+                                                    fixed: true,
+                                                    fixedPosition: 'left'
+                                                }, {
                                                     caption: 'Solicitud',
                                                     dataField: 'ALF_NUME_PEDI'
                                                 }, {
@@ -53,9 +61,9 @@
                                                     dataField: 'ALF_TIPO_CANC'
                                                 }, {
                                                     caption: 'Deuda',
-                                                    dataField: 'MON_DEUD'
+                                                    dataField: 'MON_PAGA'
                                                 }, {
-                                                    caption: 'Estado',
+                                                    caption: 'Estado de Envío',
                                                     dataField: 'IND_ENVI'
                                                 }
                                             ],
