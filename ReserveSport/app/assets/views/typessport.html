@@ -39,3 +39,22 @@
     </div>
 </div>
 <!-- end: BASIC TYPECOURTS -->
+<dx:ASPxGridView ID="grid" ClientInstanceName="grid" runat="server" DataSourceID="DemoDataSource1"
+                 KeyFieldName="EmployeeID" AutoGenerateColumns="False" Width="100%">
+    <Columns>
+        <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" VisibleIndex="0" />
+        <dx:GridViewDataTextColumn FieldName="Codigo" VisibleIndex="1">
+            <EditFormSettings VisibleIndex="0" />
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataColumn FieldName="Descripcion" VisibleIndex="4">
+            <EditFormSettings VisibleIndex="1" />
+        </dx:GridViewDataColumn>        
+    </Columns>
+    <SettingsEditing EditFormColumnCount="3" Mode="PopupEditForm" />
+    <SettingsPopup>
+        <EditForm Width="600" />
+    </SettingsPopup>
+    <SettingsPager Mode="ShowAllRecords" />
+    <Settings ShowTitlePanel="true" />
+    <SettingsText Title="Popup Edit Form Editing" />
+</dx:ASPxGridView>
