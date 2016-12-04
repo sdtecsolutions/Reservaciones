@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TipoDeporte" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2588/ServiceApp/TipoDeporte.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2588/ServiceApp/TipoDeporte.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2588/ServiceApp/TipoDeporte.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ReservationREST.BusinessEntities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITipoDeporte_Listar_TiposDeporte_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_TiposDeporte" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Listar_TiposDeporte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listar_TiposDeporteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Registrar_TipoDeporte_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registrar_TipoDeporte" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Registrar_TipoDeporte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Registrar_TipoDeporteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Actualizar_TipoDeporte_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_TipoDeporte" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Actualizar_TipoDeporte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_TipoDeporteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Obtener_TipoDeporte_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_TipoDeporte" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Obtener_TipoDeporte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_TipoDeporteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Eliminar_TipoDeporte_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_TipoDeporte" />
+  </wsdl:message>
+  <wsdl:message name="ITipoDeporte_Eliminar_TipoDeporte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_TipoDeporteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITipoDeporte">
+    <wsdl:operation name="Listar_TiposDeporte">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITipoDeporte/Listar_TiposDeporte" message="tns:ITipoDeporte_Listar_TiposDeporte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITipoDeporte/Listar_TiposDeporteResponse" message="tns:ITipoDeporte_Listar_TiposDeporte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Registrar_TipoDeporte">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITipoDeporte/Registrar_TipoDeporte" message="tns:ITipoDeporte_Registrar_TipoDeporte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITipoDeporte/Registrar_TipoDeporteResponse" message="tns:ITipoDeporte_Registrar_TipoDeporte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_TipoDeporte">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITipoDeporte/Actualizar_TipoDeporte" message="tns:ITipoDeporte_Actualizar_TipoDeporte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITipoDeporte/Actualizar_TipoDeporteResponse" message="tns:ITipoDeporte_Actualizar_TipoDeporte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_TipoDeporte">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITipoDeporte/Obtener_TipoDeporte" message="tns:ITipoDeporte_Obtener_TipoDeporte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITipoDeporte/Obtener_TipoDeporteResponse" message="tns:ITipoDeporte_Obtener_TipoDeporte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_TipoDeporte">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITipoDeporte/Eliminar_TipoDeporte" message="tns:ITipoDeporte_Eliminar_TipoDeporte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITipoDeporte/Eliminar_TipoDeporteResponse" message="tns:ITipoDeporte_Eliminar_TipoDeporte_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITipoDeporte" type="tns:ITipoDeporte">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Listar_TiposDeporte">
+      <soap:operation soapAction="http://tempuri.org/ITipoDeporte/Listar_TiposDeporte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registrar_TipoDeporte">
+      <soap:operation soapAction="http://tempuri.org/ITipoDeporte/Registrar_TipoDeporte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_TipoDeporte">
+      <soap:operation soapAction="http://tempuri.org/ITipoDeporte/Actualizar_TipoDeporte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_TipoDeporte">
+      <soap:operation soapAction="http://tempuri.org/ITipoDeporte/Obtener_TipoDeporte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_TipoDeporte">
+      <soap:operation soapAction="http://tempuri.org/ITipoDeporte/Eliminar_TipoDeporte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TipoDeporte">
+    <wsdl:port name="BasicHttpBinding_ITipoDeporte" binding="tns:BasicHttpBinding_ITipoDeporte">
+      <soap:address location="http://localhost:2588/ServiceApp/TipoDeporte.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

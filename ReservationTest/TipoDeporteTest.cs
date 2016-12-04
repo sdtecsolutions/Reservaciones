@@ -31,6 +31,43 @@ namespace ReservationTest
             Assert.AreEqual(6, tipodeporteCreado.COD_TIPO_DEPO);
             Assert.AreEqual("yyy", tipodeporteCreado.ALF_TIPO_DEPO);
         }
+
+        [TestMethod]
+        public void Test2()
+        {
+            // Prueba de creación de tipo de deporte repetido vía HTTP POST
+            string postdata = "{\"COD_TIPO_DEPO\":3,\"ALF_TIPO_DEPO\":\"Tenis\"}"; //JSON
+            byte[] data = Encoding.UTF8.GetBytes(postdata);
+            HttpWebRequest req = (HttpWebRequest)WebRequest
+                .Create("http://localhost:2588/ServiceApp/TipoDeporte.svc/TipoDeporte/");
+            req.Method = "POST";
+            req.ContentLength = data.Length;
+            req.ContentType = "application/json";
+            var reqStream = req.GetRequestStream();
+            reqStream.Write(data, 0, data.Length);
+            HttpWebResponse res = null;
+            try
+            {
+                res = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(res.GetResponseStream());
+                string tipodeporteJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                BETipoDeporte tipodeporteCreado = js.Deserialize<BETipoDeporte>(tipodeporteJson);
+                Assert.AreEqual(3, tipodeporteCreado.COD_TIPO_DEPO);
+                Assert.AreEqual("Tenis", tipodeporteCreado.ALF_TIPO_DEPO);
+            }
+            catch (WebException e)
+            {
+                HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
+                string message = ((HttpWebResponse)e.Response).StatusDescription;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string error = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string mensaje = js.Deserialize<string>(error);
+                Assert.AreEqual("404", mensaje);
+            }
+
+        }
         //[TestMethod]
         //public void Test2()
         //{
