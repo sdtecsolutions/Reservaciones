@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ReservationApi.srReservation;
+using ReservationApi.srTipoDeporte;
 
 namespace ReservationApi.Controllers
 {
@@ -17,7 +18,7 @@ namespace ReservationApi.Controllers
         {
             try
             {
-                var proxy = new OrdenClient();
+                var proxy = new TipoDeporteClient();
                 var result = proxy.Listar_TiposDeporte();
 
                 return Request.CreateResponse(HttpStatusCode.OK, result);

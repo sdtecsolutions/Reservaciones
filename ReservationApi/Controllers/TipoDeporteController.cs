@@ -61,7 +61,7 @@ namespace ReservationApi.Controllers
         /// Actualizar el tipo de deporte
         /// </summary>
         [HttpPut]
-        [Route("registrartipodeporte")]
+        [Route("actualizartipodeporte")]
         public HttpResponseMessage Actualizar_TipoDeporte(BETipoDeporte obj)
         {
             try
