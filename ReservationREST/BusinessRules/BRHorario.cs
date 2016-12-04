@@ -10,7 +10,7 @@ namespace ReservationREST.BusinessRules
     public class BRHorario
     {
         /// <summary>
-        /// Listar los horarios
+        /// Listar los horarios registrados
         /// </summary>
         public List<BEHorario> ListarHorario()
         {
