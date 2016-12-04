@@ -8,6 +8,7 @@ namespace ReservationTest
 {
     class BEHorario
     {        
+        //Entidad para pruebas rest
         public int COD_HORA { get; set; }        
         public string HOR_INIC { get; set; }        
         public string HOR_FINA { get; set; }
