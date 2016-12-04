@@ -76,5 +76,8 @@ namespace ReservationServices.BusinessEntities
 
         [DataMember]
         public string ALF_MNSG_ERRO { get; set; }
+
+        [DataMember]
+        public string IND_ENVI { get; set; }
     }
 }

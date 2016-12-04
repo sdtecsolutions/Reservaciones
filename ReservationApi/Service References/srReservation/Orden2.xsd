@@ -93,4 +93,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Listar_MensajesPedidos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listar_MensajesPedidosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ReservationServices.BusinessEntities" minOccurs="0" name="Listar_MensajesPedidosResult" nillable="true" type="q10:ArrayOfBEOrden" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

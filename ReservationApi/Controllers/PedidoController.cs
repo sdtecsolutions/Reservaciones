@@ -123,5 +123,25 @@ namespace ReservationApi.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
+
+        /// <summary>
+        /// Listar las reservaciones
+        /// </summary>
+        [HttpPost]
+        [Route("listarcolamensajes")]
+        public HttpResponseMessage Listar_ColaMensajes()
+        {
+            try
+            {
+                var proxy = new OrdenClient();
+                var result = proxy.Listar_MensajesPedidos();
+
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
     }
 }

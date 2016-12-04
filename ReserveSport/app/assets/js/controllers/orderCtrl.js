@@ -14,7 +14,7 @@ app.controller('OrderCtrl', ["$scope", "$http", function ($scope, $http) {
     ];
 
     $scope.ListTypesSport = function () {
-        $http({ method: 'POST', url: 'http://localhost:28665/listardeportes', headers: { 'Content-Type': 'application/json; charset=utf-8' } })
+        $http({ method: 'GET', url: 'http://localhost:2588/ServiceApp/TipoDeporte.svc/tipodeportes', headers: { 'Content-Type': 'application/json' } })
         .success(function (data) {
             $('#dsbCOD_TIPO_DEPO').dxSelectBox({ dataSource: data });
         });
@@ -23,11 +23,11 @@ app.controller('OrderCtrl', ["$scope", "$http", function ($scope, $http) {
     $scope.ListTypeCourts = function (COD_TIPO_DEPO) {
         var par = JSON.stringify(COD_TIPO_DEPO);
         $http({
-            method: 'POST',
-            url: 'http://localhost:28665/listarcanchas',
+            method: 'GET',
+            url: 'http://localhost:2588/ServiceApp/TipoCancha.svc/tipocanchasdeporte/' + COD_TIPO_DEPO,
             data: par,
             headers: {
-                'Content-Type': 'application/json; charset=utf-8'
+                'Content-Type': 'application/json'
             }
         })
         .success(function (data) {
@@ -40,7 +40,7 @@ app.controller('OrderCtrl', ["$scope", "$http", function ($scope, $http) {
     };
 
     $scope.ListTimeTable = function () {
-        $http({ method: 'POST', url: 'http://localhost:28665/listarhorarios', headers: { 'Content-Type': 'application/json; charset=utf-8' } })
+        $http({ method: 'GET', url: 'http://localhost:2588/ServiceApp/Horario.svc/horarios', headers: { 'Content-Type': 'application/json' } })
         .success(function (data) {
             $('#dsbCOD_HORA').dxSelectBox({ dataSource: data });
         });
@@ -83,9 +83,12 @@ app.controller('OrderCtrl', ["$scope", "$http", function ($scope, $http) {
             var ALF_CORR = $('#dtbALF_CORR').dxTextBox('instance').option('value');
             var ALF_NUME_TELE = $('#dtbALF_NUME_TELE').dxTextBox('instance').option('value');
             var COD_TIPO_DEPO = $('#dsbCOD_TIPO_DEPO').dxSelectBox('instance').option('value');
+            var ALF_TIPO_DEPO = $('#dsbCOD_TIPO_DEPO').dxSelectBox('instance').option('displayValue');
             var COD_TIPO_CANC = $('#dsbCOD_TIPO_CANC').dxSelectBox('instance').option('value');
+            var ALF_TIPO_CANC = $('#dsbCOD_TIPO_CANC').dxSelectBox('instance').option('displayValue');
             var FEC_HORA_RESE = new Date($('#ddbFEC_HORA_RESE').dxDateBox('instance').option('value')).yyyymmdd();
             var COD_HORA = $('#dsbCOD_HORA').dxSelectBox('instance').option('value');
+            var ALF_HORA = $('#dsbCOD_HORA').dxSelectBox('instance').option('displayValue');
             var rowhr = $('#dsbCOD_HORA').dxSelectBox('instance').option('selectedItem');
 
             var obj = {
@@ -98,7 +101,11 @@ app.controller('OrderCtrl', ["$scope", "$http", function ($scope, $http) {
                 COD_TIPO_CANC: COD_TIPO_CANC,
                 FEC_HORA_RESE: FEC_HORA_RESE,
                 COD_HORA: COD_HORA,
-                HOR_INIC: rowhr.HOR_INIC
+                HOR_INIC: rowhr.HOR_INIC,
+                ALF_TIPO_DEPO: ALF_TIPO_DEPO,
+                ALF_TIPO_CANC: ALF_TIPO_CANC,
+                ALF_HORA: ALF_HORA,
+                FEC_RESE: FEC_HORA_RESE
             };
 
             var pars = JSON.stringify(obj);

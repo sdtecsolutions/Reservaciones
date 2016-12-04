@@ -158,11 +158,13 @@ namespace ReservationServices.DataAccess
                                                                                  obj.COD_TIPO_DEPO,
                                                                                  obj.COD_TIPO_CANC,
                                                                                  obj.COD_HORA,
-                                                                                 obj.FEC_HORA_RESE))
+                                                                                 obj.FEC_HORA_RESE,
+                                                                                 null))
                         {
                             ocmd.CommandTimeout = 2000;
                             odb.ExecuteNonQuery(ocmd, obts);
                             obj.ALF_NUME_PEDI = Convert.ToString(odb.GetParameterValue(ocmd, "@ALF_NUME_PEDI"));
+                            obj.MON_PAGA = Convert.ToDecimal(odb.GetParameterValue(ocmd, "@MON_PREC"));
                             obts.Commit();
                         }
                     }

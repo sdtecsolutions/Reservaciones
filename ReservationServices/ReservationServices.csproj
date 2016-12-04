@@ -66,6 +66,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\ResultSetMappers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -97,6 +98,7 @@
     <Compile Include="BusinessEntities\BETipoDeporte.cs" />
     <Compile Include="BusinessRules\BRLogin.cs" />
     <Compile Include="BusinessRules\BROrden.cs" />
+    <Compile Include="BusinessRules\colaMensajes.cs" />
     <Compile Include="DataAccess\DALogin.cs" />
     <Compile Include="DataAccess\DAOrden.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

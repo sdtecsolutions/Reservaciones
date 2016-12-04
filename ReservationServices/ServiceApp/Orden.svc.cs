@@ -77,6 +77,10 @@ namespace ReservationServices.ServiceApp
 
                 var obr = new BROrden();
                 obr.Registrar_Orden(obj);
+
+                // Guardando cola para el envío de mensajes de confirmación al cliente
+                var clm = new colaMensajes();
+                clm.colaPedidoCorreoAsync(obj);
             }
             catch (Exception ex)
             {
@@ -104,6 +108,13 @@ namespace ReservationServices.ServiceApp
             var obr = new BRLogin();
             var isValid = obr.Login(obj);
             return (isValid);
+        }
+
+        public List<BEOrden> Listar_MensajesPedidos()
+        {
+            var clm = new colaMensajes();
+            var olst = clm.GetAllPedidos();
+            return (olst);
         }
     }
 }

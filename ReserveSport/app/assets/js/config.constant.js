@@ -60,6 +60,7 @@ app.constant('JS_REQUIRES', {
         'typescourtsCtrl': ['assets/js/controllers/typescourtsCtrl.js'],
         'timetableCtrl': ['assets/js/controllers/timetableCtrl.js'],
         'report1Ctrl': ['assets/js/controllers/report1Ctrl.js'],
+        'report2Ctrl': ['assets/js/controllers/report2Ctrl.js'],
         
         //*** Filters
         'htmlToPlaintext': 'assets/js/filters/htmlToPlaintext.js'

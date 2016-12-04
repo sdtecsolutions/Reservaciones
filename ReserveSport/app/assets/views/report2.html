@@ -1,0 +1,103 @@
+﻿<!-- start: REPORTE DE RESERVACIONES -->
+<div ng-controller="Report2Ctrl">
+    <div class="ContentTable">
+        <!--<div class="col-md-12">
+            <div class="row">
+                <div>
+                    <div class="ContentLabel120">Fecha Inicio:</div>
+                    <div class="ContentInput">
+                        <div id="ddbFEC_INIC"
+                             dx-date-box="{ displayFormat: 'dd/MM/yyyy', type: 'date', width: 150 }"
+                             dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValReport' }">
+
+                        </div>
+                    </div>
+                    <div class="ContentLabel120">Fecha Final:</div>
+                    <div class="ContentInput">
+                        <div id="ddbFEC_FINA"
+                             dx-date-box="{ displayFormat: 'dd/MM/yyyy', type: 'date', width: 150 }"
+                             dx-validator="{ validationRules:[{ type: 'required', message: '*' }], validationGroup: 'ValReport' }">
+                        </div>
+                    </div>
+                    <div class="ContentButton">
+                        <div dx-button="{ type: 'default', hint: 'Buscar', icon: 'find', width: 50, onClick: list_Report1 }">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="dlpcustomLoad" dx-load-panel="{ message: 'Cargando...', showIndicator: true }"></div>
+                <div id="gdvReport2" 
+                     ng-init="list_Report2()"
+                     dx-data-grid="{
+                                    columns:[
+                                                {
+                                                    caption: 'Solicitud',
+                                                    dataField: 'ALF_NUME_PEDI'
+                                                }, {
+                                                    caption: 'Cliente',
+                                                    dataField: 'ALF_NOMB'
+                                                }, {
+                                                    caption: 'Fecha',
+                                                    dataField: 'FEC_RESE'
+                                                }, {
+                                                    caption: 'Horario',
+                                                    dataField: 'ALF_HORA'
+                                                }, {
+                                                    caption: 'Deporte',
+                                                    dataField: 'ALF_TIPO_DEPO'
+                                                }, {
+                                                    caption: 'Cancha',
+                                                    dataField: 'ALF_TIPO_CANC'
+                                                }, {
+                                                    caption: 'Deuda',
+                                                    dataField: 'MON_DEUD'
+                                                }, {
+                                                    caption: 'Estado',
+                                                    dataField: 'IND_ENVI'
+                                                }
+                                            ],
+                                    filterRow: {
+                                                    visible: true
+                                    },
+                                    sorting: {
+                                                mode: 'multiple'
+                                    },
+                                    paging: {
+                                                pageSize: 10
+                                    },
+                                    pager: {
+                                                showPageSizeSelector: true,
+                                                allowedPageSizes: [10, 20, 50, 100]
+                                    },
+                                    summary: {
+                                                totalItems:[
+                                                                {
+                                                                    column: 'ALF_NUME_PEDI',
+                                                                    summaryType: 'count',
+                                                                    displayFormat: 'Total: {0}'
+                                                                }
+                                                            ]
+                                    },
+                                    loadPanel: {
+                                                    enabled: false
+                                    },
+                                    selection: {
+                                                    mode: 'single'
+                                    },
+                                    height: 528,
+                                    noDataText: '',
+                                    showBorders: true,
+                                    showRowLines: true,
+                                    hoverStateEnabled: true,
+                                    twoWayBindingEnabled: false,
+                                    columnAutoWidth: true
+                                }">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: REPORTE DE RESERVACIONES -->

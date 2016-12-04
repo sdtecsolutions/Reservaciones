@@ -48,5 +48,11 @@ namespace ReservationServices.ServiceApp
         /// </summary>
         [OperationContract]
         int LoginUser(BELogin obj);
+
+        /// <summary>
+        /// Lista las reservaciones
+        /// </summary>
+        [OperationContract]
+        List<BEOrden> Listar_MensajesPedidos();
     }
 }
