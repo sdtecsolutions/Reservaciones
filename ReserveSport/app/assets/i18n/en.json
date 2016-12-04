@@ -27,7 +27,8 @@
       },
       "tables": {
         "MAIN": "Reportes",
-        "REPORT1": "Reporte de Reservaciones"
+        "REPORT1": "Reporte de Reservaciones",
+        "REPORT2": "Reporte de Mensajes"
       }
     }
   },

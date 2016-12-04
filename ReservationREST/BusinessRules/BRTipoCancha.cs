@@ -24,6 +24,20 @@ namespace ReservationREST.BusinessRules
         }
 
         /// <summary>
+        /// Listar los tipos de cancha filtrados por deporte
+        /// </summary>
+        public List<BETipoCancha> ListarTipoCanchaDeporte(int COD_TIPO_DEPO)
+        {
+            var oda = new DATipoCancha();
+            using (var odr = oda.ListarTipoCanchaDeporte(COD_TIPO_DEPO))
+            {
+                var olst = new List<BETipoCancha>();
+                ((IList)olst).LoadFromReader<BETipoCancha>(odr);
+                return (olst);
+            }
+        }
+
+        /// <summary>
         /// Obtener tipo de cancha
         /// </summary>
         public BETipoCancha ObtenerTipoCancha(int COD_TIPO_CANC)

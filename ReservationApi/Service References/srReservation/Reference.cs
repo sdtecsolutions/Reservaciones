@@ -452,6 +452,9 @@ namespace ReservationApi.srReservation {
         private string HOR_INICField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IND_ENVIField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IND_ESTAField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -721,6 +724,19 @@ namespace ReservationApi.srReservation {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IND_ENVI {
+            get {
+                return this.IND_ENVIField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IND_ENVIField, value) != true)) {
+                    this.IND_ENVIField = value;
+                    this.RaisePropertyChanged("IND_ENVI");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string IND_ESTA {
             get {
                 return this.IND_ESTAField;
@@ -888,6 +904,12 @@ namespace ReservationApi.srReservation {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/LoginUser", ReplyAction="http://tempuri.org/IOrden/LoginUserResponse")]
         System.Threading.Tasks.Task<int> LoginUserAsync(ReservationApi.srReservation.BELogin obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_MensajesPedidos", ReplyAction="http://tempuri.org/IOrden/Listar_MensajesPedidosResponse")]
+        ReservationApi.srReservation.BEOrden[] Listar_MensajesPedidos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrden/Listar_MensajesPedidos", ReplyAction="http://tempuri.org/IOrden/Listar_MensajesPedidosResponse")]
+        System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrden[]> Listar_MensajesPedidosAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -971,6 +993,14 @@ namespace ReservationApi.srReservation {
         
         public System.Threading.Tasks.Task<int> LoginUserAsync(ReservationApi.srReservation.BELogin obj) {
             return base.Channel.LoginUserAsync(obj);
+        }
+        
+        public ReservationApi.srReservation.BEOrden[] Listar_MensajesPedidos() {
+            return base.Channel.Listar_MensajesPedidos();
+        }
+        
+        public System.Threading.Tasks.Task<ReservationApi.srReservation.BEOrden[]> Listar_MensajesPedidosAsync() {
+            return base.Channel.Listar_MensajesPedidosAsync();
         }
     }
 }

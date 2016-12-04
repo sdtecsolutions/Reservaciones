@@ -75,6 +75,7 @@
       <xs:element minOccurs="0" name="FEC_HORA_RESE" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FEC_RESE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HOR_INIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IND_ENVI" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IND_ESTA" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MON_DEUD" type="xs:decimal" />
       <xs:element minOccurs="0" name="MON_PAGA" type="xs:decimal" />

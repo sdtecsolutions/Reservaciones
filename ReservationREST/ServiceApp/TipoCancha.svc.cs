@@ -18,6 +18,16 @@ namespace ReservationREST.ServiceApp
         }
 
         /// <summary>
+        /// Listar tipos de cancha filtrados por deporte
+        /// </summary>
+        public List<BETipoCancha> ListarTipoCanchaDeporte(string COD_TIPO_DEPO)
+        {
+            var obr = new BRTipoCancha();
+            var olst = obr.ListarTipoCanchaDeporte(Convert.ToInt32(COD_TIPO_DEPO));
+            return (olst);
+        }
+
+        /// <summary>
         /// Obtener tipo de cancha
         /// </summary>
         public BETipoCancha ObtenerTipoCancha(string COD_TIPO_CANC)

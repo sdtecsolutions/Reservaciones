@@ -60,6 +60,26 @@ namespace ReservationREST.DataAccess
         }
 
         /// <summary>
+        /// Listar los tipos de cancha filtrados por deporte
+        /// </summary>
+        public IDataReader ListarTipoCanchaDeporte(int COD_TIPO_DEPO)
+        {
+            try
+            {
+                if (ocn.State == ConnectionState.Closed) ocn.Open();
+                var ocmd = odb.GetStoredProcCommand("LST_TIPO_CANCHA", COD_TIPO_DEPO);
+                ocmd.CommandTimeout = 2000;
+                var odr = odb.ExecuteReader(ocmd);
+                return (odr);
+            }
+            finally
+            {
+                ocn.Close();
+                Dispose(false);
+            }
+        }
+
+        /// <summary>
         /// Obtener el tipo de cancha
         /// </summary>
         public IDataReader ObtenerTipoCancha(int COD_TIPO_CANCHA)

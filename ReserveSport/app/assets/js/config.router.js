@@ -83,6 +83,14 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         ncyBreadcrumb: {
             label: 'Reporte 1'
         }
+    }).state('app.ui.report2', {
+        url: '/report2',
+        templateUrl: "assets/views/report2.html",
+        title: 'Reporte 2',
+        resolve: loadSequence('report2Ctrl'),
+        ncyBreadcrumb: {
+            label: 'Reporte 2'
+        }
     })
 
 	// Login routes

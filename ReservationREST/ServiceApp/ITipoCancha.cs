@@ -20,6 +20,16 @@ namespace ReservationREST.ServiceApp
         List<BETipoCancha> ListarTipoCancha();
 
         /// <summary>
+        /// Lista los tipos de deporte
+        /// </summary>
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            UriTemplate = "tipocanchasdeporte/{COD_TIPO_DEPO}",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json)]
+        List<BETipoCancha> ListarTipoCanchaDeporte(string COD_TIPO_DEPO);
+
+        /// <summary>
         /// Obtener tipo de deporte
         /// </summary>
         [OperationContract]
